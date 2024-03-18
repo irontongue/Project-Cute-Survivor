@@ -22,7 +22,7 @@ public class WeaponTurret : MonoBehaviour
         */
     void Start()
     {
-        weaponStats = FindObjectOfType<WeaponStats>().GetWeapon("MachineGun");
+        weaponStats = FindObjectOfType<WeaponStats>().GetWeapon(Weapons.Turret);
         StartCoroutine(LookForEnemy());
     }
     
@@ -34,7 +34,7 @@ public class WeaponTurret : MonoBehaviour
 
         }
     }
-    GameObject FindTarget()
+    GameObject FindClosestTarget()
     {
         GameObject target = null;
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, weaponStats.attackRange, 1 << 6);
@@ -55,17 +55,16 @@ public class WeaponTurret : MonoBehaviour
             target = closestTarget;
         }
         return(target);
-
     }
     IEnumerator LookForEnemy()
     {
         if(!currentTargetInfo || currentTargetInfo.active == false || Vector2.Distance(currentTargetInfo.trans.position, transform.position) < weaponStats.attackRange)
         {
-            StartCoroutine(GetEnemies());
+            yield return StartCoroutine(GetEnemies());
         }
         //LookAtTarget();
-        yield return new WaitForSeconds(weaponStats.attackSpeed / 60);
-        ShootGun(currentTarget);
+        yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
+        FireWeapon(currentTarget);
 
     }
 
@@ -74,16 +73,22 @@ public class WeaponTurret : MonoBehaviour
         currentTarget = null;
         while (currentTarget == null)
         {
-            currentTarget = FindTarget();
+            print("GetENemies");
+            currentTarget = FindClosestTarget();
             if (currentTarget)
+            { 
                 currentTargetInfo = currentTarget.GetComponent<EnemyInfo>();
-            yield return new WaitForSeconds(weaponStats.attackSpeed / 60);
+                break;
+            }
+            yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
         }
+        print(currentTarget);
     }
 
-    void ShootGun(GameObject target)
+    void FireWeapon(GameObject target)
     {
-        print("shooting");
+        if (target == null)
+            return;
         Vector2 direction = target.transform.position - transform.parent.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         GameObject bullet = Instantiate(projectilePrefab,muzzlePosition.transform.position, Quaternion.Euler(new Vector3(0, 0, angle)), tempObjects.transform);
