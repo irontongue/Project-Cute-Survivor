@@ -22,7 +22,7 @@ public class WeaponTurret : MonoBehaviour
         */
     void Start()
     {
-        weaponStats = FindObjectOfType<WeaponStats>().GetWeapon(Weapons.Turret);
+        weaponStats = FindObjectOfType<WeaponStats>().GetWeapon(Weapons.W_Turret);
         StartCoroutine(LookForEnemy());
     }
     
