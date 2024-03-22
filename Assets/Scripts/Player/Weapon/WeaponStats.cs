@@ -16,6 +16,7 @@ public class Weapon
     public float projectileLifetime =1 ;
     public float projectileSize = 1;
     public float duration = 1;
+    public Vector2 areaSize = Vector2.zero;
     //
     [HideInInspector]public float baseAttackSpeed = 1;
     [HideInInspector]public float baseAttackRange = 1;
@@ -23,11 +24,14 @@ public class Weapon
     [HideInInspector]public float baseProjectileLifetime = 1;
     [HideInInspector]public float baseProjectileSize = 1;
     [HideInInspector]public float baseDuration = 1;
+    [HideInInspector]public Vector2 baseAreaSize = Vector2.zero;
 }
 
 public class WeaponStats : MonoBehaviour
 {
     public Weapon[] weapons;
+    [Header("Other Stats")]
+    public int fireDamagePerTick = 1;
     private void Start()
     {
         foreach(Weapon w in weapons)

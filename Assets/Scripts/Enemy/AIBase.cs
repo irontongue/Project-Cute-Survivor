@@ -28,7 +28,5 @@ public class AIBase : MonoBehaviour
         Vector3 dir = (player.transform.position - transform.position).normalized;
         dir.z = 0;
         rb.velocity = dir * speed * Time.deltaTime;
-
-
     }
 }

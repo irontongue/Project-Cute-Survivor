@@ -52,7 +52,7 @@ public class UpgradeManager : MonoBehaviour
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        weaponStats = new WeaponStats();
+        weaponStats = FindFirstObjectByType<WeaponStats>();
         InitializeUpgradePool();
     }
     void InitializeUpgradePool()

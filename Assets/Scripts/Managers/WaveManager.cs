@@ -32,9 +32,11 @@ public class WaveManager : MonoBehaviour
     
     public float spawnRadius = 15f;
     [SerializeField] int currentWaveIndex = 0;
+    [SerializeField] Transform tempGameObjectFolder;
 
     GameManager gameManager;
     AIManager aiManager;
+    WeaponStats weaponStats;
     float unitLegnth; //The length of one unit(meter) in degrees;
     bool waveTimerFinished = false;
     Transform player;
@@ -45,6 +47,7 @@ public class WaveManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>().transform;
         gameManager = FindObjectOfType<GameManager>();
         aiManager = FindObjectOfType<AIManager>();
+        weaponStats = FindObjectOfType<WeaponStats>();
         AssignDictionaries();
 
         unitLegnth = 1 / (spawnRadius * Mathf.Deg2Rad);
@@ -63,10 +66,8 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(WaveTimer());
         while(waveTimerFinished == false)
         {
-            print("in loop");
             foreach(WaveEnemyPacket packet in wavesInfo[currentWaveIndex].enemyTypes) 
             {
-                print("Loops");
                 while (gameManager.isPaused)
                 {
                     yield return null;
@@ -156,7 +157,7 @@ public class WaveManager : MonoBehaviour
                 }
                 else
                 {
-                    EnemyInfo info = Instantiate(enemyPrefabDictionary[waveEnemyPacket.enemyType], dir * (spawnRadius + i) + (Vector2)player.position, transform.rotation).GetComponent<EnemyInfo>();
+                    EnemyInfo info = Instantiate(enemyPrefabDictionary[waveEnemyPacket.enemyType], dir * (spawnRadius + i) + (Vector2)player.position, transform.rotation, tempGameObjectFolder).GetComponent<EnemyInfo>();
                     AssignAIInfo(info);
                     aiManager.AddToActiveEnemies(info.enemyType, info);
 
@@ -181,12 +182,16 @@ public class WaveManager : MonoBehaviour
 
     void AssignAIInfo(EnemyInfo info)
     {
-            info.active = true;
-            info.rb = info.GetComponent<Rigidbody2D>();
-            info.gObject = info.gameObject;
-            info.trans = info.transform;
-            info.manager = aiManager;
-            info.player = player; 
+        info.active = true;
+        info.rb = info.GetComponent<Rigidbody2D>();
+        info.gObject = info.gameObject;
+        info.trans = info.transform;
+        info.manager = aiManager;
+        info.player = player; 
+        info.spriteRenderer = info.GetComponent<SpriteRenderer>();
+        info.weaponStats = weaponStats;
+        info.fire_PE = info.GetComponentInChildren<ParticleSystem>();
+        info.currentFrame = Random.Range(0, info.frames.Length - 1);
     }
     void AssignDictionaries()
     {
