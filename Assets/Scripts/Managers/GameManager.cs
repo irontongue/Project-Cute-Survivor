@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool isPaused = false;
+    public int exp;
     void Start()
     {
         

@@ -13,13 +13,14 @@ public class EnemyInfo : MonoBehaviour
     public int maxHealth = 10;
     public bool active = true;
     public bool onFire = false;
+    public int exp = 1;
     [Header("SetUp")]
     public Rigidbody2D rb;
     public GameObject gObject;
     public Transform trans;
     public AIManager manager;
     public Transform player;
-    public WeaponStats weaponStats;
+    public GameManager gameManger;
     public ParticleSystem fire_PE;
     [Header("Animation")]
     public SpriteRenderer spriteRenderer;
@@ -61,7 +62,9 @@ public class EnemyInfo : MonoBehaviour
         gameObject.SetActive(false);
         health = maxHealth;
         manager.RemoveActiveEnemy(this);
-        //Play Death sound
+        gameManger.exp += exp;
+        //Play Death sound?
+        //Add exp;
     }
 
     virtual public void ResetVariables()

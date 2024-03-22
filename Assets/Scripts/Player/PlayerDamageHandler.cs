@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDamageHandler : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerDamageHandler : MonoBehaviour
     public int maxHealth = 1;
     public float invulnerabilityTime = 0.25f;
     [SerializeField] bool invulnerable = false;
-
+    [SerializeField] Image healthBarImage;
     void Start()
     {
         
@@ -43,5 +44,11 @@ public class PlayerDamageHandler : MonoBehaviour
     void ChangeHealth(int amount)
     {
         health = Mathf.Clamp(health + amount, 0, maxHealth);
+        UpdateUI();
+    }
+    void UpdateUI()
+    {
+        print(health / maxHealth);
+        healthBarImage.fillAmount = (float)health / (float)maxHealth;
     }
 }

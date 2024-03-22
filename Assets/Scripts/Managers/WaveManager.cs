@@ -189,7 +189,7 @@ public class WaveManager : MonoBehaviour
         info.manager = aiManager;
         info.player = player; 
         info.spriteRenderer = info.GetComponent<SpriteRenderer>();
-        info.weaponStats = weaponStats;
+        info.gameManger = gameManager;
         info.fire_PE = info.GetComponentInChildren<ParticleSystem>();
         info.currentFrame = Random.Range(0, info.frames.Length - 1);
     }
