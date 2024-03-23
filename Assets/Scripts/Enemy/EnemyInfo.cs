@@ -62,7 +62,7 @@ public class EnemyInfo : MonoBehaviour
         gameObject.SetActive(false);
         health = maxHealth;
         manager.RemoveActiveEnemy(this);
-        gameManger.exp += exp;
+        gameManger.GiveExp(exp);
         //Play Death sound?
         //Add exp;
     }
