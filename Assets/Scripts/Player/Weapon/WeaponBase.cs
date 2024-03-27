@@ -8,20 +8,25 @@ public class WeaponBase : MonoBehaviour
 {
     [SerializeField] protected Transform muzzlePosition;
     [SerializeField] protected Weapons weapon;
+
     protected GameObject currentTarget;
     protected EnemyInfo currentTargetInfo = null;
     protected Weapon weaponStats;
+    protected GameManager gameManager;
 
 
     virtual protected void Start()
     {
         weaponStats = FindObjectOfType<WeaponStats>().GetWeapon(weapon);
+        gameManager = FindObjectOfType<GameManager>();
     }
     protected virtual IEnumerator GetClosestTarget()
     {
         currentTarget = null;
         while (currentTarget == null)
         {
+            if (gameManager.isPaused)
+                yield return null;
             currentTarget = FindClosestTarget();
             if (currentTarget != null)
             {
@@ -53,12 +58,8 @@ public class WeaponBase : MonoBehaviour
         }
         return (target);
     }
-    float _angle;
-    Vector2 _size;
     protected virtual EnemyInfo[] GetEnemiesInArea(Vector2 center, Vector2 size, float angle)
     {
-        _angle = angle;
-        _size = size;
         EnemyInfo[] infos;
 
         Collider2D[] hits = Physics2D.OverlapBoxAll(center, size, angle, 1 << 6);

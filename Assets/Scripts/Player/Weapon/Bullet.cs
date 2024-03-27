@@ -5,13 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public Weapon weapon;
+    GameManager gameManager;
 
     private void Start()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         Destroy(gameObject, 10);
     }
     void Update()
     {
+        if (gameManager.isPaused)
+            return;
         transform.position += transform.right * weapon.projectileSpeed * Time.deltaTime;
     }
 

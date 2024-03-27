@@ -25,14 +25,19 @@ public class WeaponTurret : WeaponBase
     
     private void Update()
     {
+        if (gameManager.isPaused)
+            return;
         if (currentTarget != null)
-        { 
+        {
             LookAtTarget(); // Optimise to use one angle calc instead of 2
         }
     }
     
     IEnumerator LookForEnemy()
     {
+        while(gameManager.isPaused)
+            yield return null;
+
         if(!currentTargetInfo || currentTargetInfo.active == false || Vector2.Distance(currentTargetInfo.trans.position, transform.position) < weaponStats.attackRange)
         {
             yield return StartCoroutine(GetClosestTarget());

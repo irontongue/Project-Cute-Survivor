@@ -56,6 +56,8 @@ public class EnemyInfo : MonoBehaviour
     virtual protected IEnumerator DeathEvent()
     {
         yield return new WaitForEndOfFrame();
+        while(gameManger.isPaused)
+            yield return null;
         fire_PE.Stop();
         onFire = false;
         active = false;

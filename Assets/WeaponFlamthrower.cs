@@ -20,6 +20,8 @@ public class WeaponFlamthrower : WeaponBase
     {
         while(timer < weaponStats.duration)
         {
+            if (gameManager.isPaused)
+                yield return null;
             timer += Time.deltaTime;
             yield return null;
         }
@@ -33,10 +35,14 @@ public class WeaponFlamthrower : WeaponBase
         StartCoroutine(WeaponTimer());
         while(timer < weaponStats.duration)
         {
+            if (gameManager.isPaused)
+                yield return null;
             Fire();
             yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(weaponStats.attackSpeed);
+        while (gameManager.isPaused)
+            yield return null;
         timer = 0;
         StartCoroutine(MainLoop());
     }

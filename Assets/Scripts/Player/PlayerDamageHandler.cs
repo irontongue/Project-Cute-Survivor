@@ -48,7 +48,6 @@ public class PlayerDamageHandler : MonoBehaviour
     }
     void UpdateUI()
     {
-        print(health / maxHealth);
         healthBarImage.fillAmount = (float)health / (float)maxHealth;
     }
 }

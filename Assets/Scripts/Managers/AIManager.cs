@@ -6,7 +6,8 @@ public enum EnemyBehaviour {Chase, Ranged}
 public enum EnemyType {Slime, FrogCar}
 public class AIManager : MonoBehaviour
 {
-    GameObject player;
+    GameObject playerGameObject;
+    GameManager gameManager;
     WaveManager waveManager;
     WeaponStats weaponStats;
     // *** Enemy Pooling ***
@@ -18,9 +19,16 @@ public class AIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerController>().gameObject;
+        GetReferences();
+        gameManager.pauseEvent += PauseEnemies;
+        gameManager.playEvent += ResumeEnemies;
+    }
+    void GetReferences()
+    {
+        playerGameObject = FindObjectOfType<PlayerController>().gameObject;
         waveManager = FindObjectOfType<WaveManager>();
         weaponStats = FindObjectOfType<WeaponStats>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -57,7 +65,11 @@ public class AIManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector2 playerPos = player.transform.position;
+        if(gameManager.isPaused)
+        {
+            return;
+        }
+        Vector2 playerPos = playerGameObject.transform.position;
         if(activeEnemies.Count > 0)
         {
             foreach (EnemyInfo enemy in activeEnemies)
@@ -75,6 +87,33 @@ public class AIManager : MonoBehaviour
             if(dpsTimer >= 1)
             {
                 dpsTimer = 0;
+            }
+        }
+    }
+    void PauseEnemies()
+    {
+        if (activeEnemies.Count > 0)
+        {
+            foreach (EnemyInfo enemy in activeEnemies)
+            {
+                if (enemy.active)
+                {
+                    enemy.rb.simulated = false;
+                }
+            }
+        }
+    }
+
+    void ResumeEnemies()
+    {
+        if (activeEnemies.Count > 0)
+        {
+            foreach (EnemyInfo enemy in activeEnemies)
+            {
+                if (enemy.active)
+                {
+                    enemy.rb.simulated = true;
+                }
             }
         }
     }

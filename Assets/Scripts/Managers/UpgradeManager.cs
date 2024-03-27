@@ -26,7 +26,9 @@ public class UpgradeNode
     public UpgradeType upgradeType;
     public float amount;
     public string description;
+    public Texture image;
     public UpgradeNode nextNode;
+    public string nextNodeName;
     //public float weight;
 
 }
@@ -35,7 +37,7 @@ public class UpgradeCard
 {
     public  TextMeshProUGUI name;
     public TextMeshProUGUI description;
-    public RawImage spriteRenderer;
+    public RawImage rawImage;
 }
 
 public class UpgradeManager : MonoBehaviour
@@ -45,8 +47,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] GameObject upgradeUI;
     [SerializeField] UpgradeTree[] upgradeTrees;
     [SerializeField] UpgradeCard[] upgradeCards;
-    List<UpgradeNode> upgradePool = new List<UpgradeNode>();
-    UpgradeNode[] chosenUpgrades = new UpgradeNode[3];
+    public List<UpgradeNode> upgradePool = new List<UpgradeNode>();
+    public UpgradeNode[] chosenUpgrades = new UpgradeNode[3];
     WeaponStats weaponStats;
     GameManager gameManager;
     void Start()
@@ -54,99 +56,131 @@ public class UpgradeManager : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         weaponStats = FindFirstObjectByType<WeaponStats>();
         InitializeUpgradePool();
+        AddWeapon(upgradeTrees[0].nodes[0]);
     }
     void InitializeUpgradePool()
     {
         foreach (UpgradeTree tree in upgradeTrees)
         {
-            if(tree.treeActive)
-                upgradePool.Add(tree.nodes[0]);
+            //if(tree.treeActive)
+              //  upgradePool.Add(tree.nodes[0]);
             for(int i = 0; i < tree.nodes.Length; i++) // Set each Node's next Node in the list
             {
                 if(i != tree.nodes.Length - 1)
-                tree.nodes[i].nextNode = tree.nodes[i + 1];
+                {
+                    tree.nodes[i].nextNode = tree.nodes[i + 1];
+                    tree.nodes[i].nextNodeName = tree.nodes[i + 1].name;
+
+                }
+
             }
         }
     }
 
     void Update()
     {
-        
+        //if(gameManager.isPaused != true)
+        //    UpgradeEvent();
     }
 
     public void UpgradeEvent()
     {
-        gameManager.isPaused = true;
-
-        int[] chosenNumbers = new int[2];
-        for(int i = 0; i < 3; i++) //Loop Adds i new ugprades to the chosenUpgrades
+        if (upgradePool.Count == 0)
+            return;
+        //foreach(UpgradeNode upgradeNode in upgradePool)
+        //{
+        //    print(upgradeNode.name);
+        //}
+        gameManager.pauseEvent();
+        int iterations = 3;
+        if(upgradePool.Count < 3)
+        {
+            iterations = upgradePool.Count;
+        }
+        
+        HashSet<int> chosenNumbers = new HashSet<int>(); //Using HasSet To gaurentee unique numbers being pulled;
+        for(int i = 0; i < iterations; i++) //Loop Adds i new ugprades to the chosenUpgrades
         {
             int randomNumber = 0;
-            int whileCounter = 0;
-            while (true)
+            int maxLoops = 0; //Stop Infinite loop.
+            while (chosenNumbers.Count - 1 < i)
             {
-                whileCounter++;
-                if(whileCounter > 1000)
+                if (maxLoops > 100)
                 {
-                    print("InfinteLoop here");
+                    print("failed");
                     break;
                 }
-                
-                randomNumber = Random.Range(0, upgradePool.Count - 1);
-                if(!chosenNumbers.Contains(randomNumber))
-                {
-                    chosenNumbers[i] = randomNumber;
-                    break;
-                }
+                maxLoops++;
+                randomNumber = Random.Range(0, upgradePool.Count);
+                chosenNumbers.Add(randomNumber);
             }
-            chosenNumbers[i] = randomNumber;
             chosenUpgrades[i] = upgradePool[randomNumber];
+
+            //Assign Upgrades to Cards **
+            upgradeCards[i].name.text = chosenUpgrades[i].name;
+            upgradeCards[i].rawImage.texture = chosenUpgrades[i]?.image;
+            upgradeCards[i].description.text = chosenUpgrades[i].description;
         }
         upgradeUI.SetActive(true);
-        //Assign Upgrades to Cards **
     }
 
     public void buttonInput(int card)
     {
-        choseUpgrade(chosenUpgrades[card]);
+        if (chosenUpgrades[card] == null)
+        {
+            return;
+        }
+        chooseUpgrade(chosenUpgrades[card]);
         upgradeUI.SetActive(false);
-        gameManager.isPaused = false;
+        gameManager.playEvent();
     }
-    public void choseUpgrade(UpgradeNode node)
+    public void chooseUpgrade(UpgradeNode node)
     {
-        if (node.nextNode != null)
+        if (node.nextNode != null) 
             upgradePool.Add(node.nextNode);
+        upgradePool.Remove(node);
         
+            print(Mathf.Ceil(1 + node.amount / 100));
         switch(node.upgradeType) 
         {
             case UpgradeType.addWeapon:
                 //Add Image to UI **
-                weaponGameObjects[(int)node.weapon].SetActive(true);
-                foreach(UpgradeTree tree in upgradeTrees)
-                {
-                    UpgradeNode upNode = tree.nodes[0];
-                    if (upNode.weapon == node.weapon)
-                    {
-                        tree.treeActive = true;
-                        upgradePool.Add(upNode);
-                    }
-                }
+                AddWeapon(node);
                 break;
             case UpgradeType.dmg:
                 weaponStats.GetWeapon(node.weapon).damage += (int)node.amount;
                 break;
             case UpgradeType.atkSpd:
-                    weaponStats.GetWeapon(node.weapon).baseAttackSpeed *= (1 + (int)node.amount / 100);
+                weaponStats.GetWeapon(node.weapon).attackSpeed = weaponStats.GetWeapon(node.weapon).baseAttackSpeed * Mathf.Ceil(1 + node.amount / 100);
                 break;
             case UpgradeType.size:
                     weaponStats.GetWeapon(node.weapon).projectileSize += node.amount;
                 break;
             case UpgradeType.duration:
-                    weaponStats.GetWeapon(node.weapon).baseDuration *= (1 + (int)node.amount / 100);
+                weaponStats.GetWeapon(node.weapon).duration = weaponStats.GetWeapon(node.weapon).baseDuration *= Mathf.Ceil(1 + node.amount / 100);
                 break;
             case UpgradeType.specialOne:
 
                 break;
+        }
+        for(int i = 0; i < chosenUpgrades.Length; i++)
+        {
+            chosenUpgrades[i] = null;
+            upgradeCards[i].name.text = "You've Run Out Of Upgrades!";
+            upgradeCards[i].description.text = "|_-(0.0)-_|";
+        }
+    }
+    private void AddWeapon(UpgradeNode node)
+    {
+        weaponGameObjects[(int)node.weapon].SetActive(true);
+        foreach (UpgradeTree tree in upgradeTrees)
+        {
+            UpgradeNode upNode = tree.nodes[0];
+            if (upNode.weapon == node.weapon)
+            {
+                tree.treeActive = true;
+                upgradePool.Add(upNode);
+            }
         }
     }
 
