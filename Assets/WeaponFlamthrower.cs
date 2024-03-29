@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class WeaponFlamthrower : WeaponBase
 {
@@ -49,9 +50,8 @@ public class WeaponFlamthrower : WeaponBase
     void Fire()
     {
         areaSize = weaponStats.areaSize;
-        center = muzzlePosition.position + transform.up * (areaSize.x * 0.5f);
-        Debug.DrawLine(muzzlePosition.position, center);
-        float angle = transform.root.rotation.eulerAngles.z - 90f;
+        center = muzzlePosition.position + transform.right * (areaSize.x * 0.5f);
+        float angle = transform.root.rotation.eulerAngles.z + muzzlePosition.transform.rotation.z;
         EnemyInfo[] infos = GetEnemiesInArea(center, areaSize, angle);
         foreach (EnemyInfo info in infos)
         {
@@ -61,6 +61,7 @@ public class WeaponFlamthrower : WeaponBase
             info.DealDamage(weaponStats.damage);
         } 
     }
+
     //private void OnDrawGizmos()
     //{
     //    Vector3 angle = transform.rotation.eulerAngles;

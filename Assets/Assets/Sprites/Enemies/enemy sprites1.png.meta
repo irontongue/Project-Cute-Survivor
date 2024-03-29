@@ -113,10 +113,10 @@ TextureImporter:
       name: enemy sprites1_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 48
-        width: 14
-        height: 31
+        x: 0
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: enemy sprites1_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 48
-        width: 14
-        height: 31
+        x: 32
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,9 +156,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 34
-        width: 15
-        height: 13
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: enemy sprites1_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 14
-        height: 13
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: enemy sprites1_4
       rect:
         serializedVersion: 2
-        x: 1
-        y: 17
-        width: 14
-        height: 13
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: enemy sprites1_5
       rect:
         serializedVersion: 2
-        x: 33
-        y: 17
-        width: 14
-        height: 13
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,7 +240,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -261,7 +261,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -273,6 +273,48 @@ TextureImporter:
       bones: []
       spriteID: cf8bd0cf45e94e243bef7340e084b252
       internalID: -912446975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy sprites1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f475a4cb2ddb5db458a0707e915d5088
+      internalID: 97832225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy sprites1_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e964e2aad0dcf47a2baa613483f898
+      internalID: 1033707417
       vertices: []
       indices: 
       edges: []
@@ -296,6 +338,8 @@ TextureImporter:
       enemy sprites1_5: -1586047002
       enemy sprites1_6: -375856578
       enemy sprites1_7: -912446975
+      enemy sprites1_8: 97832225
+      enemy sprites1_9: 1033707417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

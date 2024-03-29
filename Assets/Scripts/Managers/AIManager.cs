@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EnemyBehaviour {Chase, Ranged}
-public enum EnemyType {Slime, FrogCar}
+public enum EnemyType {Slime, FishLegs, FrogCar, CarrotDude}
 public class AIManager : MonoBehaviour
 {
     GameObject playerGameObject;

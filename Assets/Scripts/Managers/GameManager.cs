@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int xpToLevelUp = 5;
     [SerializeField] float levelUpMultiplier;
     public int playerlevel = 0;
+
+    public GameObject gameOverUI;
 
     public delegate void PauseDelegate();
     public PauseDelegate pauseEvent;
@@ -43,6 +46,21 @@ public class GameManager : MonoBehaviour
     void Pause()
     {
         isPaused = !isPaused;
+    }
+
+    public void DeathEvent()
+    {
+        pauseEvent();
+        gameOverUI.SetActive(true);   
+        
+    }
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 
 

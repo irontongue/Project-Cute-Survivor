@@ -17,10 +17,12 @@ public class WeaponTurret : WeaponBase
         * Wait for cooldown
         * Repeate
         */
+    float attackDelay;
     override protected void Start()
     {
         base.Start();
         StartCoroutine(LookForEnemy());
+        attackDelay = 1 / weaponStats.attackSpeed;
     }
     
     private void Update()
@@ -32,7 +34,6 @@ public class WeaponTurret : WeaponBase
             LookAtTarget(); // Optimise to use one angle calc instead of 2
         }
     }
-    
     IEnumerator LookForEnemy()
     {
         while(gameManager.isPaused)
@@ -43,7 +44,7 @@ public class WeaponTurret : WeaponBase
             yield return StartCoroutine(GetClosestTarget());
         }
         //LookAtTarget();
-        yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
+        yield return new WaitForSeconds(attackDelay);
         FireWeapon(currentTarget);
     }
     void FireWeapon(GameObject target)

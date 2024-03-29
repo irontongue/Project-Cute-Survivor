@@ -166,17 +166,19 @@ MonoBehaviour:
   enemyType: 0
   damage: 1
   speed: 250
-  health: 10
+  health: 4
   maxHealth: 10
   active: 1
   onFire: 0
+  exp: 1
   rb: {fileID: 0}
   gObject: {fileID: 0}
   trans: {fileID: 0}
   manager: {fileID: 0}
   player: {fileID: 0}
-  weaponStats: {fileID: 0}
+  gameManger: {fileID: 0}
   fire_PE: {fileID: 0}
+  animate: 1
   spriteRenderer: {fileID: 0}
   frames:
   - {fileID: 723851951, guid: bde638a49c0259646814d7f05aba7e26, type: 3}

@@ -57,6 +57,7 @@ public class UpgradeManager : MonoBehaviour
         weaponStats = FindFirstObjectByType<WeaponStats>();
         InitializeUpgradePool();
         AddWeapon(upgradeTrees[0].nodes[0]);
+        
     }
     void InitializeUpgradePool()
     {
@@ -70,11 +71,13 @@ public class UpgradeManager : MonoBehaviour
                 {
                     tree.nodes[i].nextNode = tree.nodes[i + 1];
                     tree.nodes[i].nextNodeName = tree.nodes[i + 1].name;
-
                 }
+                if(tree.treeActive && tree.nodes[i].weapon != Weapons.W_Turret)
+                    upgradePool.Add(tree.nodes[i]);
 
             }
         }
+        
     }
 
     void Update()
@@ -120,9 +123,18 @@ public class UpgradeManager : MonoBehaviour
             upgradeCards[i].name.text = chosenUpgrades[i].name;
             upgradeCards[i].rawImage.texture = chosenUpgrades[i]?.image;
             upgradeCards[i].description.text = chosenUpgrades[i].description;
+            upgradeCards[i].name.gameObject.SetActive(true);
+        }
+        if (3 - iterations != 0)
+        {
+            for (int i = 0; i < 3 - iterations; i++)
+            {
+                chosenUpgrades[iterations - 1 - i] = null;
+            }
         }
         upgradeUI.SetActive(true);
     }
+
 
     public void buttonInput(int card)
     {
@@ -130,17 +142,24 @@ public class UpgradeManager : MonoBehaviour
         {
             return;
         }
-        chooseUpgrade(chosenUpgrades[card]);
+        ChooseUpgrade(chosenUpgrades[card]);
         upgradeUI.SetActive(false);
         gameManager.playEvent();
+        foreach(UpgradeCard upgradeCard in upgradeCards) 
+        {
+            upgradeCard.name.gameObject.SetActive(false);
+        }
+        foreach (UpgradeNode upgradeNode in upgradePool)
+        {
+            print(upgradeNode.name);
+        }
     }
-    public void chooseUpgrade(UpgradeNode node)
+    public void ChooseUpgrade(UpgradeNode node)
     {
         if (node.nextNode != null) 
             upgradePool.Add(node.nextNode);
         upgradePool.Remove(node);
         
-            print(Mathf.Ceil(1 + node.amount / 100));
         switch(node.upgradeType) 
         {
             case UpgradeType.addWeapon:

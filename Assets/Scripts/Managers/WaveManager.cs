@@ -22,6 +22,7 @@ public class WaveEnemyPacket
 
 public class WaveManager : MonoBehaviour
 {
+    public bool dev_DontSpawnWave;
     [SerializeField] GameObject[] enemyPrefabs;
     public Dictionary<EnemyType, int> activeEnemies = new Dictionary<EnemyType, int>();
     public Dictionary<EnemyType, int> totalEnemiesToSpawn = new Dictionary<EnemyType, int>();
@@ -51,7 +52,7 @@ public class WaveManager : MonoBehaviour
         AssignDictionaries();
 
         unitLegnth = 1 / (spawnRadius * Mathf.Deg2Rad);
-
+        if(!dev_DontSpawnWave)
         StartCoroutine(WaveLoop());
     }
 

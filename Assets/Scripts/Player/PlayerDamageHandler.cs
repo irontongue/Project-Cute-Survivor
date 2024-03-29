@@ -10,9 +10,11 @@ public class PlayerDamageHandler : MonoBehaviour
     public float invulnerabilityTime = 0.25f;
     [SerializeField] bool invulnerable = false;
     [SerializeField] Image healthBarImage;
+    GameManager gameManager;
+    public ParticleSystem fx;
     void Start()
     {
-        
+        gameManager = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PlayerDamageHandler : MonoBehaviour
     public IEnumerator TakeDamage(int damage)
     {
         invulnerable = true;
-        ChangeHealth(-damage);
+        ChangeHealth(-damage);                 
         yield return new WaitForSeconds(invulnerabilityTime);
         invulnerable = false;
     }
@@ -44,6 +46,11 @@ public class PlayerDamageHandler : MonoBehaviour
     void ChangeHealth(int amount)
     {
         health = Mathf.Clamp(health + amount, 0, maxHealth);
+        if(health == 0)
+        {
+            gameManager.DeathEvent();
+            fx.Play();
+        }
         UpdateUI();
     }
     void UpdateUI()

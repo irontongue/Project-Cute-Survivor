@@ -8,11 +8,13 @@ public class WeaponBase : MonoBehaviour
 {
     [SerializeField] protected Transform muzzlePosition;
     [SerializeField] protected Weapons weapon;
+    [SerializeField] protected GameObject tempObjectsGameObject;
 
     protected GameObject currentTarget;
     protected EnemyInfo currentTargetInfo = null;
     protected Weapon weaponStats;
     protected GameManager gameManager;
+    [SerializeField] protected List<GameObject> projectilePool;
 
 
     virtual protected void Start()
@@ -69,5 +71,13 @@ public class WeaponBase : MonoBehaviour
             infos[i] = hits[i].GetComponent<EnemyInfo>();
         }
         return infos;
+    }
+    public void AddToProjectilePool(GameObject _gameObject)
+    {
+        projectilePool.Add(_gameObject);
+    }
+    public void RemoveFromProjectilePool(GameObject _gameObject)
+    {
+        projectilePool.Remove(_gameObject);
     }
 }

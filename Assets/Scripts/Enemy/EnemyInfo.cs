@@ -23,6 +23,7 @@ public class EnemyInfo : MonoBehaviour
     public GameManager gameManger;
     public ParticleSystem fire_PE;
     [Header("Animation")]
+    public bool animate = true;
     public SpriteRenderer spriteRenderer;
     public Sprite[] frames;
     [SerializeField, Tooltip("Input your FPS then / 10")] float framesPerSec;
@@ -82,6 +83,8 @@ public class EnemyInfo : MonoBehaviour
 
     public void Animate()
     {
+        if (!animate)
+            return;
         timer += Time.fixedDeltaTime;
         if (timer < framesPerSec)
             return;
