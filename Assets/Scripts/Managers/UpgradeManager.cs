@@ -57,7 +57,13 @@ public class UpgradeManager : MonoBehaviour
         weaponStats = FindFirstObjectByType<WeaponStats>();
         InitializeUpgradePool();
         AddWeapon(upgradeTrees[0].nodes[0]);
-        
+        for (int i = 0; i < chosenUpgrades.Length; i++)
+        {
+            chosenUpgrades[i] = null;
+            upgradeCards[i].name.text = "You've Run Out Of Upgrades!";
+            upgradeCards[i].description.text = "|_-(0.0)-_|";
+        }
+
     }
     void InitializeUpgradePool()
     {
@@ -74,16 +80,18 @@ public class UpgradeManager : MonoBehaviour
                 }
                 if(tree.treeActive && tree.nodes[i].weapon != Weapons.W_Turret)
                     upgradePool.Add(tree.nodes[i]);
-
             }
         }
-        
     }
 
     void Update()
     {
         //if(gameManager.isPaused != true)
         //    UpgradeEvent();
+        if(Input.GetKeyDown(KeyCode.I)) 
+        {
+            gameManager.GiveExp(10);
+        }
     }
 
     public void UpgradeEvent()
@@ -125,23 +133,16 @@ public class UpgradeManager : MonoBehaviour
             upgradeCards[i].description.text = chosenUpgrades[i].description;
             upgradeCards[i].name.gameObject.SetActive(true);
         }
-        if (3 - iterations != 0)
-        {
-            for (int i = 0; i < 3 - iterations; i++)
-            {
-                chosenUpgrades[iterations - 1 - i] = null;
-            }
-        }
+
         upgradeUI.SetActive(true);
     }
 
 
     public void buttonInput(int card)
     {
-        if (chosenUpgrades[card] == null)
-        {
+        if (chosenUpgrades[card].name == null)
             return;
-        }
+        
         ChooseUpgrade(chosenUpgrades[card]);
         upgradeUI.SetActive(false);
         gameManager.playEvent();
@@ -149,16 +150,11 @@ public class UpgradeManager : MonoBehaviour
         {
             upgradeCard.name.gameObject.SetActive(false);
         }
-        foreach (UpgradeNode upgradeNode in upgradePool)
-        {
-            print(upgradeNode.name);
-        }
     }
     public void ChooseUpgrade(UpgradeNode node)
     {
         if (node.nextNode != null) 
             upgradePool.Add(node.nextNode);
-        upgradePool.Remove(node);
         
         switch(node.upgradeType) 
         {
@@ -188,6 +184,7 @@ public class UpgradeManager : MonoBehaviour
             upgradeCards[i].name.text = "You've Run Out Of Upgrades!";
             upgradeCards[i].description.text = "|_-(0.0)-_|";
         }
+        upgradePool.Remove(node);
     }
     private void AddWeapon(UpgradeNode node)
     {
@@ -195,6 +192,8 @@ public class UpgradeManager : MonoBehaviour
         foreach (UpgradeTree tree in upgradeTrees)
         {
             UpgradeNode upNode = tree.nodes[0];
+            if (upNode.upgradeType == UpgradeType.addWeapon)
+                continue;
             if (upNode.weapon == node.weapon)
             {
                 tree.treeActive = true;
