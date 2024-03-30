@@ -56,10 +56,10 @@ Material:
     - _EnableExternalAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _scale: 28575
+    - _scale: 20000
     m_Colors:
-    - _Color: {r: 0.509434, g: 0.36669794, b: 0.16532573, a: 1}
-    - _Color_2: {r: 0.2264151, g: 0.1635495, b: 0.12687789, a: 0}
+    - _Color: {r: 0.75294125, g: 0.627451, b: 0.49411768, a: 1}
+    - _Color_2: {r: 0.7137255, g: 0.5647059, b: 0.41176474, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

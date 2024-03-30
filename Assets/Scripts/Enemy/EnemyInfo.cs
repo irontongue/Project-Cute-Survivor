@@ -12,16 +12,35 @@ public class EnemyInfo : MonoBehaviour
     public int health = 10;
     public int maxHealth = 10;
     public bool active = true;
+    public bool onFire = false;
+    public int exp = 1;
     [Header("SetUp")]
     public Rigidbody2D rb;
     public GameObject gObject;
     public Transform trans;
     public AIManager manager;
     public Transform player;
-
-    virtual public void AILoop(EnemyBehaviour behaviour)
+    public GameManager gameManger;
+    public ParticleSystem fire_PE;
+    [Header("Animation")]
+    public bool animate = true;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] frames;
+    [SerializeField, Tooltip("Input your FPS then / 10")] float framesPerSec;
+    public int currentFrame = 0;
+    virtual public void AILoop(EnemyBehaviour behaviour, Vector3 playerPosition)
     {
-       
+
+    }
+    public virtual void DamagePerSecond(int damage)
+    {
+        DealDamage(damage);
+    }
+    public virtual void SetOnFire()
+    {
+        onFire = true;
+        if(fire_PE != null)
+            fire_PE.Play();
     }
     virtual public void DealDamage(int damage)
     {
@@ -31,21 +50,53 @@ public class EnemyInfo : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            DeathEvent();
+            StartCoroutine(DeathEvent());
         }
     }
 
-    virtual protected void DeathEvent()
+    virtual protected IEnumerator DeathEvent()
     {
+        yield return new WaitForEndOfFrame();
+        while(gameManger.isPaused)
+            yield return null;
+        fire_PE.Stop();
+        onFire = false;
         active = false;
         gameObject.SetActive(false);
         health = maxHealth;
         manager.RemoveActiveEnemy(this);
-        //Play Death sound
+        gameManger.GiveExp(exp);
+        //Play Death sound?
+        //Add exp;
     }
 
     virtual public void ResetVariables()
     {
         active = true;
+    }
+
+    void Start()
+    {
+       
+    }
+    public float timer = 0;
+
+    public void Animate()
+    {
+        if(transform.position.x < player.transform.position.x)
+            spriteRenderer.flipX = true;
+        else
+            spriteRenderer.flipX = false;
+        if (!animate)
+            return;
+        timer += Time.fixedDeltaTime;
+        if (timer < framesPerSec)
+            return;
+        timer = 0f;
+
+        if (currentFrame >= frames.Length)
+            currentFrame = 0;
+        spriteRenderer.sprite = frames[currentFrame];
+        currentFrame += 1;
     }
 }

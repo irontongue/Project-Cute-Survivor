@@ -10,15 +10,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float acceleration = 0;
     [SerializeField] float rotationSpeed = 5;
     [SerializeField] float autoBreakSpeed = 5;
+    GameManager gameManager;
 
     AudioSource audioSource;
     void Start()
     {
+        gameManager = FindAnyObjectByType<GameManager>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        gameManager.pauseEvent += Pause;
+        gameManager.playEvent += Resume;
     }
     private void Update()
     {
+        if (gameManager.isPaused)
+            return;
         audioSource.pitch = acceleration / maxSpeed;
         transform.eulerAngles += new Vector3(0, 0, (-Input.GetAxis("Horizontal") * (rotationSpeed * acceleration / maxSpeed)) *Time.deltaTime)  ;
         float vertInput = Input.GetAxisRaw("Vertical");
@@ -44,7 +50,23 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if(gameManager.isPaused)
+            return;
         if(acceleration != 0)
         rb.velocity = transform.up * acceleration * Time.fixedDeltaTime;
+    }
+
+    Vector2 pausedVel;
+    void Pause()
+    {
+        pausedVel = rb.velocity;
+        rb.velocity = Vector2.zero;
+        audioSource.Pause();
+    }
+
+    void Resume()
+    {
+        audioSource.Play();
+        rb.velocity = pausedVel;
     }
 }
