@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [System.Serializable]
@@ -98,7 +96,7 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            print("No More Waves!");
+            gameManager.WinEvent();
         }
     }
     IEnumerator WaveTimer()
@@ -165,8 +163,7 @@ public class WaveManager : MonoBehaviour
                     aiManager.AddToActiveEnemies(info.enemyType, info);
 
                 }
-                if (spawnDelay)
-                    yield return new WaitForSeconds(waveEnemyPacket.delayBetweenSpawns);
+                    yield return null;
             }
             if (breakOutOfLoop)
             {

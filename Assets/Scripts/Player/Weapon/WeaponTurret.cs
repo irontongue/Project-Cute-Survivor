@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponTurret : WeaponBase
@@ -39,10 +37,10 @@ public class WeaponTurret : WeaponBase
         while(gameManager.isPaused)
             yield return null;
 
-        if(!currentTargetInfo || currentTargetInfo.active == false || Vector2.Distance(currentTargetInfo.trans.position, transform.position) < weaponStats.attackRange)
-        {
+        //if(!currentTargetInfo || currentTargetInfo.active == false || Vector2.Distance(currentTargetInfo.trans.position, transform.position) < weaponStats.attackRange)
+        //{
             yield return StartCoroutine(GetClosestTarget());
-        }
+        //}
         //LookAtTarget();
         yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
         FireWeapon(currentTarget);
