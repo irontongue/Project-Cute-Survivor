@@ -44,7 +44,7 @@ public class WeaponTurret : WeaponBase
             yield return StartCoroutine(GetClosestTarget());
         }
         //LookAtTarget();
-        yield return new WaitForSeconds(attackDelay);
+        yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
         FireWeapon(currentTarget);
     }
     void FireWeapon(GameObject target)

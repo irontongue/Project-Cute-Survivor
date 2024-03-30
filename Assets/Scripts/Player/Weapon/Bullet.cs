@@ -41,6 +41,7 @@ public class Bullet : MonoBehaviour
         if (info = other.gameObject.GetComponent<EnemyInfo>())
         {
             info.DealDamage(weapon.damage);
+            ResetSelf();
         }
 	}
 }
