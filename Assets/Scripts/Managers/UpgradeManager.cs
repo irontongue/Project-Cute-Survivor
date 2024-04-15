@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
 //public enum UpgradeFor {W_Turret, W_FlameThrower, W_RocketLauncher}
-public enum UpgradeType {addWeapon, dmg, atkSpd, size, duration, specialOne, specialTwo}
+public enum UpgradeType {addWeapon, dmg, atkSpd, size, duration, projectileSpeed, specialOne, specialTwo}
 [System.Serializable]
 
 public class UpgradeTree 
@@ -166,10 +162,13 @@ public class UpgradeManager : MonoBehaviour
                 weaponStats.GetWeapon(node.weapon).damage += (int)node.amount;
                 break;
             case UpgradeType.atkSpd:
-                weaponStats.GetWeapon(node.weapon).attackSpeed = weaponStats.GetWeapon(node.weapon).baseAttackSpeed * Mathf.Ceil(1 + node.amount / 100);
+                weaponStats.GetWeapon(node.weapon).attackSpeed += weaponStats.GetWeapon(node.weapon).baseAttackSpeed * Mathf.Ceil(1 + node.amount / 100);
                 break;
             case UpgradeType.size:
                     weaponStats.GetWeapon(node.weapon).projectileSize += node.amount;
+                break;
+            case UpgradeType.projectileSpeed:
+                weaponStats.GetWeapon(node.weapon).projectileSpeed += node.amount;
                 break;
             case UpgradeType.duration:
                 weaponStats.GetWeapon(node.weapon).duration = weaponStats.GetWeapon(node.weapon).baseDuration *= Mathf.Ceil(1 + node.amount / 100);

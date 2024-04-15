@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [System.Serializable]
 public class WavePacket
 {
-    [Tooltip("In Minutes")]public float duration;
+    [Tooltip("In Seconds")]public float duration;
     public WaveEnemyPacket[] enemyTypes;
 }
 [System.Serializable]
@@ -18,6 +16,7 @@ public class WaveEnemyPacket
     public float angleStart = 0;
     public float angleEnd = 90;
     public float rotateAmount = 0;
+    public float delayBetweenSpawns = 0;
 }
 
 public class WaveManager : MonoBehaviour
@@ -97,13 +96,13 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            print("No More Waves!");
+            gameManager.WinEvent();
         }
     }
     IEnumerator WaveTimer()
     {
         float timer = 0;
-        float duration = wavesInfo[currentWaveIndex].duration * 60;
+        float duration = wavesInfo[currentWaveIndex].duration;// * 60;
         while(timer < duration)
         {
             while(gameManager.isPaused)
@@ -125,6 +124,7 @@ public class WaveManager : MonoBehaviour
         float spacing = Mathf.Clamp(length / (amountToSpawn - 1), 1, Mathf.Infinity);
         int loops = (int)Mathf.Ceil(amountToSpawn / length); //How many times it should loop (if there isnt enough space along the edge, it will loop and move 1 further away)
         bool breakOutOfLoop = false;//Used to break out of the first for loop from the inner
+        bool spawnDelay = waveEnemyPacket.delayBetweenSpawns != 0;
 
         for (int i = 0; i < loops; i++)
         {
@@ -163,6 +163,7 @@ public class WaveManager : MonoBehaviour
                     aiManager.AddToActiveEnemies(info.enemyType, info);
 
                 }
+                    yield return null;
             }
             if (breakOutOfLoop)
             {

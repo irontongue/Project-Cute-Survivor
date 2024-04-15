@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int playerlevel = 0;
 
     public GameObject gameOverUI;
+    public GameObject gameWinUI;
 
     public delegate void PauseDelegate();
     public PauseDelegate pauseEvent;
@@ -52,7 +53,11 @@ public class GameManager : MonoBehaviour
     {
         pauseEvent();
         gameOverUI.SetActive(true);   
-        
+    }
+    public void WinEvent()
+    {
+        pauseEvent();
+        gameWinUI.SetActive(true);
     }
     public void RestartScene()
     {
@@ -62,6 +67,4 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-
-
 }

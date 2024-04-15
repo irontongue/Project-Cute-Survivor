@@ -166,7 +166,7 @@ MonoBehaviour:
   enemyType: 0
   damage: 1
   speed: 250
-  health: 4
+  health: 3
   maxHealth: 10
   active: 1
   onFire: 0
