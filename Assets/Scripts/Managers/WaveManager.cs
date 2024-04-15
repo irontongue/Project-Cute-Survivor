@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 [System.Serializable]
 public class WavePacket
 {
-    [Tooltip("In Minutes")]public float duration;
+    [Tooltip("In Seconds")]public float duration;
     public WaveEnemyPacket[] enemyTypes;
 }
 [System.Serializable]
@@ -18,10 +16,12 @@ public class WaveEnemyPacket
     public float angleStart = 0;
     public float angleEnd = 90;
     public float rotateAmount = 0;
+    public float delayBetweenSpawns = 0;
 }
 
 public class WaveManager : MonoBehaviour
 {
+    public bool dev_DontSpawnWave;
     [SerializeField] GameObject[] enemyPrefabs;
     public Dictionary<EnemyType, int> activeEnemies = new Dictionary<EnemyType, int>();
     public Dictionary<EnemyType, int> totalEnemiesToSpawn = new Dictionary<EnemyType, int>();
@@ -32,9 +32,11 @@ public class WaveManager : MonoBehaviour
     
     public float spawnRadius = 15f;
     [SerializeField] int currentWaveIndex = 0;
+    [SerializeField] Transform tempGameObjectFolder;
 
     GameManager gameManager;
     AIManager aiManager;
+    WeaponStats weaponStats;
     float unitLegnth; //The length of one unit(meter) in degrees;
     bool waveTimerFinished = false;
     Transform player;
@@ -45,10 +47,11 @@ public class WaveManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>().transform;
         gameManager = FindObjectOfType<GameManager>();
         aiManager = FindObjectOfType<AIManager>();
+        weaponStats = FindObjectOfType<WeaponStats>();
         AssignDictionaries();
 
         unitLegnth = 1 / (spawnRadius * Mathf.Deg2Rad);
-
+        if(!dev_DontSpawnWave)
         StartCoroutine(WaveLoop());
     }
 
@@ -63,10 +66,8 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(WaveTimer());
         while(waveTimerFinished == false)
         {
-            print("in loop");
             foreach(WaveEnemyPacket packet in wavesInfo[currentWaveIndex].enemyTypes) 
             {
-                print("Loops");
                 while (gameManager.isPaused)
                 {
                     yield return null;
@@ -95,13 +96,13 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            print("No More Waves!");
+            gameManager.WinEvent();
         }
     }
     IEnumerator WaveTimer()
     {
         float timer = 0;
-        float duration = wavesInfo[currentWaveIndex].duration * 60;
+        float duration = wavesInfo[currentWaveIndex].duration;// * 60;
         while(timer < duration)
         {
             while(gameManager.isPaused)
@@ -123,6 +124,7 @@ public class WaveManager : MonoBehaviour
         float spacing = Mathf.Clamp(length / (amountToSpawn - 1), 1, Mathf.Infinity);
         int loops = (int)Mathf.Ceil(amountToSpawn / length); //How many times it should loop (if there isnt enough space along the edge, it will loop and move 1 further away)
         bool breakOutOfLoop = false;//Used to break out of the first for loop from the inner
+        bool spawnDelay = waveEnemyPacket.delayBetweenSpawns != 0;
 
         for (int i = 0; i < loops; i++)
         {
@@ -156,11 +158,12 @@ public class WaveManager : MonoBehaviour
                 }
                 else
                 {
-                    EnemyInfo info = Instantiate(enemyPrefabDictionary[waveEnemyPacket.enemyType], dir * (spawnRadius + i) + (Vector2)player.position, transform.rotation).GetComponent<EnemyInfo>();
+                    EnemyInfo info = Instantiate(enemyPrefabDictionary[waveEnemyPacket.enemyType], dir * (spawnRadius + i) + (Vector2)player.position, transform.rotation, tempGameObjectFolder).GetComponent<EnemyInfo>();
                     AssignAIInfo(info);
                     aiManager.AddToActiveEnemies(info.enemyType, info);
 
                 }
+                    yield return null;
             }
             if (breakOutOfLoop)
             {
@@ -181,12 +184,16 @@ public class WaveManager : MonoBehaviour
 
     void AssignAIInfo(EnemyInfo info)
     {
-            info.active = true;
-            info.rb = info.GetComponent<Rigidbody2D>();
-            info.gObject = info.gameObject;
-            info.trans = info.transform;
-            info.manager = aiManager;
-            info.player = player; 
+        info.active = true;
+        info.rb = info.GetComponent<Rigidbody2D>();
+        info.gObject = info.gameObject;
+        info.trans = info.transform;
+        info.manager = aiManager;
+        info.player = player; 
+        info.spriteRenderer = info.GetComponent<SpriteRenderer>();
+        info.gameManger = gameManager;
+        info.fire_PE = info.GetComponentInChildren<ParticleSystem>();
+        info.currentFrame = Random.Range(0, info.frames.Length - 1);
     }
     void AssignDictionaries()
     {
