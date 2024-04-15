@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07bcab5e096c24b4ea7c3b9e219ec132
+guid: f461af3684ec2ce4cafe6c919bbb0378
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,34 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_1_0
+      name: elephant attack_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41298a7760622d642977096c69043b21
-      internalID: 1670737790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet_1_1
-      rect:
-        serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 15
-        height: 15
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c88f02717212e343879529068ed6d34
-      internalID: -1751739832
+      spriteID: 069fda7f86983ff44a720362b61d4d43
+      internalID: 113297335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_2
+      name: elephant attack_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 6
-        width: 4
-        height: 4
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02e09c8187b5b6b4993c45473468e6e6
-      internalID: 772201774
+      spriteID: 3858c5b51150c7148b39e1623bdbe883
+      internalID: 936383997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elephant attack_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cdc82c141498dd488803fc9a89dc1c3
+      internalID: 1459891491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: elephant attack_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b81b812782c96542bb08c0261786869
+      internalID: 1159110892
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_1_0: 1670737790
-      bullet_1_1: -1751739832
-      bullet_1_2: 772201774
+      elephant attack_0: 113297335
+      elephant attack_1: 936383997
+      elephant attack_2: 1459891491
+      elephant attack_3: 1159110892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

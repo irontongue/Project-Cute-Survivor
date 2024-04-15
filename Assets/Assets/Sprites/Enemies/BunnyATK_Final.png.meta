@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07bcab5e096c24b4ea7c3b9e219ec132
+guid: bd00c9d251757d74896e5a11baf52458
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,34 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_1_0
+      name: BunnyBoss_Final_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41298a7760622d642977096c69043b21
-      internalID: 1670737790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet_1_1
-      rect:
-        serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 15
-        height: 15
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c88f02717212e343879529068ed6d34
-      internalID: -1751739832
+      spriteID: 220b7e38616210f42949902c70c078fb
+      internalID: 1436695377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_2
+      name: BunnyBoss_Final_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 6
-        width: 4
-        height: 4
+        x: 32
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02e09c8187b5b6b4993c45473468e6e6
-      internalID: 772201774
+      spriteID: f5d4ac56e9aad9a4c8085be578c19651
+      internalID: 1168402214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyBoss_Final_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4feb6fd8d7d0694429c27b717129bcb5
+      internalID: 1233354748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BunnyBoss_Final_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90e6000aa2e0cf48a8b0b31fb9b7bdf
+      internalID: 519437100
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_1_0: 1670737790
-      bullet_1_1: -1751739832
-      bullet_1_2: 772201774
+      BunnyBoss_Final_0: 1436695377
+      BunnyBoss_Final_1: 1168402214
+      BunnyBoss_Final_2: 1233354748
+      BunnyBoss_Final_3: 519437100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

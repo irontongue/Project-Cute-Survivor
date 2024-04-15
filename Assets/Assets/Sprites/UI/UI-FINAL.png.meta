@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07bcab5e096c24b4ea7c3b9e219ec132
+guid: 84f0a28e42834744a896d26659e8b4c2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_1_0
+      name: UI-FINAL_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 7
-        height: 7
+        x: 3
+        y: 136
+        width: 82
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41298a7760622d642977096c69043b21
-      internalID: 1670737790
+      spriteID: ef3993a540ba0a84692ab3c7456f0b63
+      internalID: 314123944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_1
+      name: UI-FINAL_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 15
-        height: 15
+        x: 93
+        y: 136
+        width: 82
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c88f02717212e343879529068ed6d34
-      internalID: -1751739832
+      spriteID: de5057738aa728f42be228e072f552cb
+      internalID: -367408460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_2
+      name: UI-FINAL_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 6
-        width: 4
-        height: 4
+        x: 3
+        y: 81
+        width: 82
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02e09c8187b5b6b4993c45473468e6e6
-      internalID: 772201774
+      spriteID: 3283fb877ab2231408d40e3e6efe91b9
+      internalID: 2086205318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI-FINAL_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 94
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ee71dce1bb5f84bb0632ae5c0fbfc3
+      internalID: -138789304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI-FINAL_4
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 94
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b81f57bb45b984b9eb84fa2d384e21
+      internalID: 1997616670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI-FINAL_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 24
+        width: 67
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7eb4fdbfe13077418b0d68d8f1ed704
+      internalID: 1531458123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI-FINAL_6
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 33
+        width: 82
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c91667f51cde2f4d85e5f724bc87931
+      internalID: 1485299887
       vertices: []
       indices: 
       edges: []
@@ -183,9 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_1_0: 1670737790
-      bullet_1_1: -1751739832
-      bullet_1_2: 772201774
+      UI-FINAL_0: 314123944
+      UI-FINAL_1: -367408460
+      UI-FINAL_2: 2086205318
+      UI-FINAL_3: -138789304
+      UI-FINAL_4: 1997616670
+      UI-FINAL_5: 1531458123
+      UI-FINAL_6: 1485299887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

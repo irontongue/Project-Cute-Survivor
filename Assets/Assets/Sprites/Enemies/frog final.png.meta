@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07bcab5e096c24b4ea7c3b9e219ec132
+guid: c015c1963b92ead40b378ed67068925a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_1_0
+      name: frog final_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 7
-        height: 7
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41298a7760622d642977096c69043b21
-      internalID: 1670737790
+      spriteID: b5034d0922bd14c4988000e8e19ea560
+      internalID: 777348558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_1
+      name: frog final_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,29 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c88f02717212e343879529068ed6d34
-      internalID: -1751739832
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bullet_1_2
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 6
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02e09c8187b5b6b4993c45473468e6e6
-      internalID: 772201774
+      spriteID: 93c1559586eacc442a33da2700c5d421
+      internalID: 1646101647
       vertices: []
       indices: 
       edges: []
@@ -183,9 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_1_0: 1670737790
-      bullet_1_1: -1751739832
-      bullet_1_2: 772201774
+      frog final_0: 777348558
+      frog final_1: 1646101647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

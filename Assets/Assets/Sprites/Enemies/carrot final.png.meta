@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07bcab5e096c24b4ea7c3b9e219ec132
+guid: ab5880115d97a294eb419076464e75f3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet_1_0
+      name: carrot final_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 7
-        height: 7
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41298a7760622d642977096c69043b21
-      internalID: 1670737790
+      spriteID: dbc5d81b3c84be54488283d3d59d24c0
+      internalID: 1986052803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_1
+      name: carrot final_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c88f02717212e343879529068ed6d34
-      internalID: -1751739832
+      spriteID: eac02976086af50449dede05950faf19
+      internalID: -407082469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bullet_1_2
+      name: carrot final_2
       rect:
         serializedVersion: 2
-        x: 38
-        y: 6
-        width: 4
-        height: 4
+        x: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02e09c8187b5b6b4993c45473468e6e6
-      internalID: 772201774
+      spriteID: c6e2b650803221b4da2b08b5a11189be
+      internalID: -1968647889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carrot final_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2931b11219321c44d85b95301b7bfb8b
+      internalID: -280716869
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bullet_1_0: 1670737790
-      bullet_1_1: -1751739832
-      bullet_1_2: 772201774
+      carrot final_0: 1986052803
+      carrot final_1: -407082469
+      carrot final_2: -1968647889
+      carrot final_3: -280716869
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
