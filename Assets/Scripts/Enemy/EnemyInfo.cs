@@ -84,9 +84,9 @@ public class EnemyInfo : MonoBehaviour
     public void Animate()
     {
         if(transform.position.x < player.transform.position.x)
-            spriteRenderer.flipX = true;
-        else
             spriteRenderer.flipX = false;
+        else
+            spriteRenderer.flipX = true;
         if (!animate)
             return;
         timer += Time.fixedDeltaTime;
