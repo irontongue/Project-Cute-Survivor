@@ -80,4 +80,11 @@ public class WeaponBase : MonoBehaviour
     {
         projectilePool.Remove(_gameObject);
     }
+    protected Vector2 GetPointInDonut(float innerRadius, float outerRadius)
+    {
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+        float randomDistance = Random.Range(innerRadius, outerRadius);
+        Vector2 randomSpot = (Vector2)transform.position + randomDirection * randomDistance;
+        return randomSpot;
+    }
 }
