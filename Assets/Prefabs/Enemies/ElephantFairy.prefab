@@ -9,8 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: animate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: enemyType
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: framesPerSec
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: spriteRenderer
@@ -23,27 +31,39 @@ PrefabInstance:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.data[0]
       value: 
-      objectReference: {fileID: 566236278, guid: ad0a35cbcfc50254ca190d02c027dcdc, type: 3}
+      objectReference: {fileID: -1460322458, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.data[1]
       value: 
-      objectReference: {fileID: -812035226, guid: ad0a35cbcfc50254ca190d02c027dcdc, type: 3}
+      objectReference: {fileID: 1232367063, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.data[2]
       value: 
-      objectReference: {fileID: 590777790, guid: ad0a35cbcfc50254ca190d02c027dcdc, type: 3}
+      objectReference: {fileID: 1781893918, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.data[3]
       value: 
-      objectReference: {fileID: 800857538, guid: ad0a35cbcfc50254ca190d02c027dcdc, type: 3}
+      objectReference: {fileID: -1410171580, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
     - target: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_Name
       value: ElephantFairy
       objectReference: {fileID: 0}
     - target: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 566236278, guid: ad0a35cbcfc50254ca190d02c027dcdc, type: 3}
+      objectReference: {fileID: -1460322458, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
+    - target: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
