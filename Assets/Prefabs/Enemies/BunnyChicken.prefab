@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: enemyType
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: framesPerSec
