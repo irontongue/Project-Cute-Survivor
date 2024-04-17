@@ -18,14 +18,17 @@ public class GameManager : MonoBehaviour
     public delegate void PauseDelegate();
     public PauseDelegate pauseEvent;
     public PauseDelegate playEvent;
+    public MusicSystem musicSystem;
 
 
     UpgradeManager upgradeManager;
     void Start()
     {
+        print("I started");
         upgradeManager = GetComponent<UpgradeManager>();
         pauseEvent += Pause;
         playEvent += Pause;
+        
     }
 
     public void GiveExp(int xp)
@@ -66,5 +69,10 @@ public class GameManager : MonoBehaviour
     public void QuitApplication()
     {
         Application.Quit();
+    }
+
+    public void IncreaseMusicIntensity()
+    {
+        musicSystem.IncreaseIntensity();
     }
 }
