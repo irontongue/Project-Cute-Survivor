@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad0a35cbcfc50254ca190d02c027dcdc
+guid: 2c4494edfb49a184286a276e4dcd6204
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ElephantIDL_0
+      name: ElephantIDL 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381b0358dadab844db35422a548626fb
-      internalID: 566236278
+      spriteID: bae4b87f227da734db167bba2e18002f
+      internalID: -1460322458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElephantIDL_1
+      name: ElephantIDL 1_1
       rect:
         serializedVersion: 2
         x: 48
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0427486ccf6ae8942b94831504cc1eb5
-      internalID: -812035226
+      spriteID: 71ca5db61575627498dd9a6c8a4fa390
+      internalID: 1232367063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElephantIDL_2
+      name: ElephantIDL 1_2
       rect:
         serializedVersion: 2
         x: 96
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 037c6f0a633b7e744bd73bcfc49ab067
-      internalID: 590777790
+      spriteID: 4db899e56fc07354881f8ab140770d08
+      internalID: 1781893918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ElephantIDL_3
+      name: ElephantIDL 1_3
       rect:
         serializedVersion: 2
         x: 144
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a3be0d13605b14a93339793598e4a4
-      internalID: 800857538
+      spriteID: 954b2d96318ebde4094fdcc727d23385
+      internalID: -1410171580
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ElephantIDL_0: 566236278
-      ElephantIDL_1: -812035226
-      ElephantIDL_2: 590777790
-      ElephantIDL_3: 800857538
+      ElephantIDL 1_0: -1460322458
+      ElephantIDL 1_1: 1232367063
+      ElephantIDL 1_2: 1781893918
+      ElephantIDL 1_3: -1410171580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f461af3684ec2ce4cafe6c919bbb0378
+guid: db6d2915d449abd489b6939e265e1fd5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: elephant attack_0
+      name: elephant attack 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 069fda7f86983ff44a720362b61d4d43
-      internalID: 113297335
+      spriteID: 2c17cee8534d95441a1bb152830a5279
+      internalID: 1037063458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elephant attack_1
+      name: elephant attack 1_1
       rect:
         serializedVersion: 2
         x: 48
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3858c5b51150c7148b39e1623bdbe883
-      internalID: 936383997
+      spriteID: 0f13ea47165f70d4597c539a0b004cd1
+      internalID: -591033640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elephant attack_2
+      name: elephant attack 1_2
       rect:
         serializedVersion: 2
         x: 96
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cdc82c141498dd488803fc9a89dc1c3
-      internalID: 1459891491
+      spriteID: a15cbe3132f974749b2d2e609c2e68eb
+      internalID: -407429763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: elephant attack_3
+      name: elephant attack 1_3
       rect:
         serializedVersion: 2
         x: 144
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b81b812782c96542bb08c0261786869
-      internalID: 1159110892
+      spriteID: 0ceae974ae6d02a4a90fc4e9ba1e4043
+      internalID: -123999501
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      elephant attack_0: 113297335
-      elephant attack_1: 936383997
-      elephant attack_2: 1459891491
-      elephant attack_3: 1159110892
+      elephant attack 1_0: 1037063458
+      elephant attack 1_1: -591033640
+      elephant attack 1_2: -407429763
+      elephant attack 1_3: -123999501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

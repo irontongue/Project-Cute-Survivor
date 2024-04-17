@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5057755126785074523
+--- !u!1001 &4421497108243516663
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,24 +9,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-      propertyPath: exp
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-      propertyPath: speed
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-      propertyPath: health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-      propertyPath: animate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: enemyType
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: framesPerSec
@@ -35,35 +19,27 @@ PrefabInstance:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: spriteRenderer
       value: 
-      objectReference: {fileID: 8603598272749548344}
+      objectReference: {fileID: 867662316664806036}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.data[0]
       value: 
-      objectReference: {fileID: -485491158, guid: 8f0591c70fa0e3e49a1b681cbb965e46, type: 3}
+      objectReference: {fileID: 706123328, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: frames.Array.data[1]
       value: 
-      objectReference: {fileID: -128134958, guid: 8f0591c70fa0e3e49a1b681cbb965e46, type: 3}
-    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-      propertyPath: frames.Array.data[2]
-      value: 
-      objectReference: {fileID: 1731737780, guid: 8f0591c70fa0e3e49a1b681cbb965e46, type: 3}
-    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-      propertyPath: frames.Array.data[3]
-      value: 
-      objectReference: {fileID: 1700298996, guid: 8f0591c70fa0e3e49a1b681cbb965e46, type: 3}
+      objectReference: {fileID: -335577913, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
     - target: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_Name
-      value: FishLegs
+      value: BunnyChicken
       objectReference: {fileID: 0}
     - target: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1045548107, guid: b5ee1cccdc263dd4eb583cb02b701d74, type: 3}
+      objectReference: {fileID: 706123328, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
     - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -109,8 +85,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
---- !u!212 &8603598272749548344 stripped
+--- !u!212 &867662316664806036 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
-  m_PrefabInstance: {fileID: 5057755126785074523}
+  m_PrefabInstance: {fileID: 4421497108243516663}
   m_PrefabAsset: {fileID: 0}

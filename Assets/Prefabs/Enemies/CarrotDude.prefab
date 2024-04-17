@@ -22,12 +22,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: animate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: enemyType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 984042270772276048}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.data[0]
+      value: 
+      objectReference: {fileID: 1986052803, guid: ab5880115d97a294eb419076464e75f3, type: 3}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.data[1]
+      value: 
+      objectReference: {fileID: -407082469, guid: ab5880115d97a294eb419076464e75f3, type: 3}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.data[2]
+      value: 
+      objectReference: {fileID: -1968647889, guid: ab5880115d97a294eb419076464e75f3, type: 3}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.data[3]
+      value: 
+      objectReference: {fileID: -280716869, guid: ab5880115d97a294eb419076464e75f3, type: 3}
     - target: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_Name
       value: CarrotDude
@@ -81,3 +105,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+--- !u!212 &984042270772276048 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+  m_PrefabInstance: {fileID: 4395191411206552883}
+  m_PrefabAsset: {fileID: 0}
