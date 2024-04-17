@@ -7,6 +7,7 @@ public class WavePacket
 {
     [Tooltip("In Seconds")]public float duration;
     public WaveEnemyPacket[] enemyTypes;
+    public bool increaseMusicIntensity = false;
 }
 [System.Serializable]
 public class WaveEnemyPacket
@@ -17,6 +18,7 @@ public class WaveEnemyPacket
     public float angleEnd = 90;
     public float rotateAmount = 0;
     public float delayBetweenSpawns = 0;
+    public float minSpacing = 1;
 }
 
 public class WaveManager : MonoBehaviour
@@ -78,6 +80,11 @@ public class WaveManager : MonoBehaviour
                 //print("Enemies To Spawn: " + enemiesToSpawn);
                 if (enemiesToSpawn > 0)
                 {
+                    if (wavesInfo[currentWaveIndex].increaseMusicIntensity)
+                    {
+                        gameManager.IncreaseMusicIntensity();
+                    }
+
                     yield return SpawnWave(packet, enemiesToSpawn, timesRepeated);
                 }
             }
@@ -121,7 +128,7 @@ public class WaveManager : MonoBehaviour
         float degPerUnit = 360f / (2f * Mathf.PI * spawnRadius) * (Mathf.PI / 180f); //Finding the length of each degree of rotation along the edge of the circle
         float length = (waveEnemyPacket.angleEnd - waveEnemyPacket.angleStart) * (2f * Mathf.PI * spawnRadius) / 360f; //The Length between each angle in units
         int amountToSpawn = originalAmountToSpawn;
-        float spacing = Mathf.Clamp(length / (amountToSpawn - 1), 1, Mathf.Infinity);
+        float spacing = Mathf.Clamp(length / (amountToSpawn - 1), waveEnemyPacket.minSpacing, Mathf.Infinity);
         int loops = (int)Mathf.Ceil(amountToSpawn / length); //How many times it should loop (if there isnt enough space along the edge, it will loop and move 1 further away)
         bool breakOutOfLoop = false;//Used to break out of the first for loop from the inner
         bool spawnDelay = waveEnemyPacket.delayBetweenSpawns != 0;
