@@ -177,11 +177,12 @@ public class UpgradeManager : MonoBehaviour
 
                 break;
         }
+        
         for(int i = 0; i < chosenUpgrades.Length; i++)
         {
             chosenUpgrades[i] = null;
             upgradeCards[i].name.text = "You've Run Out Of Upgrades!";
-            upgradeCards[i].description.text = "|_-(0.0)-_|";
+            upgradeCards[i].description.text = "";
         }
         upgradePool.Remove(node);
     }

@@ -76,7 +76,6 @@ public class PlayerController : MonoBehaviour
          
         int index = (int)rotationDegrees / 15;
         index = Mathf.Clamp(index, 0, 23);
-        print(index);
         spriteRenderer.sprite = carSprites[index];
     }
 
