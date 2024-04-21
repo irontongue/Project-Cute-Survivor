@@ -19,11 +19,13 @@ public class GameManager : MonoBehaviour
     public PauseDelegate pauseEvent;
     public PauseDelegate playEvent;
     public MusicSystem musicSystem;
+    [HideInInspector] public AIManager aiManager;
 
 
     UpgradeManager upgradeManager;
     void Start()
     {
+        aiManager = FindFirstObjectByType<AIManager>();
         print("I started");
         upgradeManager = GetComponent<UpgradeManager>();
         pauseEvent += Pause;

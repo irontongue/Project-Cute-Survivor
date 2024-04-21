@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyBehaviour {Chase, Ranged}
+public enum EnemyBehaviour {Chase, Ranged, Explode}
 public enum EnemyType {Slime, FishLegs, FrogCar, CarrotDude, CaviarPlant, MushroomSquid, ElephantFairy, ChickenBunny, BananaBoy, extra1, extra2, extra3, extra4, extra5}
 public class AIManager : MonoBehaviour
 {
@@ -14,6 +14,8 @@ public class AIManager : MonoBehaviour
     public Dictionary<EnemyType, List<EnemyInfo>> enemyPools = new Dictionary<EnemyType, List<EnemyInfo>>();
     // *** End Pooling ***
     public List<EnemyInfo> activeEnemies = new List<EnemyInfo>();
+    public List<GameObject> projectilePool;
+    public GameObject tempGameobjectFolder;
 
 
     // Start is called before the first frame update
@@ -76,7 +78,7 @@ public class AIManager : MonoBehaviour
             {
                 if(enemy.active)
                 {
-                    enemy.AILoop(enemy.enemyBehaviour, playerPos);
+                    enemy.AILoop(playerPos);
                     enemy.Animate();
                     if (dpsTimer < 1)
                         continue;

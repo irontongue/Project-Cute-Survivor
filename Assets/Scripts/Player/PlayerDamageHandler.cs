@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,10 +26,18 @@ public class PlayerDamageHandler : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.transform.tag == "Enemy" || other.transform.tag == "Projectile")
+        if (invulnerable)
         {
-            if(!invulnerable)
+            print("returning");
+            return;
+        }
+        if(other.transform.tag == "Enemy")
+        {
             StartCoroutine(TakeDamage(other.transform.GetComponent<EnemyInfo>().damage));
+        }
+        else if (other.transform.tag == "Projectile")
+        {
+            StartCoroutine(TakeDamage(other.GetComponent<EnemyProjectile>().damage));
         }
     }
 
