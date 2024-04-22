@@ -171,6 +171,7 @@ MonoBehaviour:
   active: 1
   onFire: 0
   exp: 1
+  isElite: 0
   rb: {fileID: 0}
   gObject: {fileID: 0}
   trans: {fileID: 0}
@@ -191,9 +192,15 @@ MonoBehaviour:
   - {fileID: -606503385, guid: bde638a49c0259646814d7f05aba7e26, type: 3}
   - {fileID: 146305747, guid: bde638a49c0259646814d7f05aba7e26, type: 3}
   - {fileID: -924006400, guid: bde638a49c0259646814d7f05aba7e26, type: 3}
-  framesPerSec: 0.05
+  framesPerSec: 0.1
   currentFrame: 0
   timer: 0
+  projectile: {fileID: 0}
+  attackSpeed: 0
+  projectileDamage: 1
+  projectileSpeed: 0
+  explodeRange: 0
+  explosionParticleSystem: {fileID: 0}
 --- !u!1 &4787852323710268419
 GameObject:
   m_ObjectHideFlags: 0
