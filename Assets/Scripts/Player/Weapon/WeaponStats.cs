@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Weapons {W_Turret, W_FlameThrower, W_RocketLauncher, W_RodFromGod}
+public enum Weapons {W_Turret, W_FlameThrower, W_RocketLauncher, W_RodFromGod, W_Lazer}
 
 [System.Serializable]
 public class Weapon

@@ -60,6 +60,8 @@ public class EnemyInfo : MonoBehaviour
         yield return new WaitForEndOfFrame();
         while(gameManger.isPaused)
             yield return null;
+        if (gameManger.healthPacksAvaliable > 0)
+            gameManger.DropHealthPack(trans.position );
         fire_PE.Stop();
         onFire = false;
         active = false;

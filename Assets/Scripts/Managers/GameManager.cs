@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    float timer;
+    public int gameTimer = 0;
     public bool isPaused = false;
     public int exp;
     [SerializeField] int xpToLevelUp = 5;
@@ -21,6 +23,10 @@ public class GameManager : MonoBehaviour
     public MusicSystem musicSystem;
     [HideInInspector] public AIManager aiManager;
 
+    [Header("PickUpItems")]
+    public int healthPacksAvaliable;
+    [SerializeField] public GameObject healthPack;
+    [SerializeField] int timeBetweenHealthPacks = 60;
 
     UpgradeManager upgradeManager;
     void Start()
@@ -31,6 +37,27 @@ public class GameManager : MonoBehaviour
         pauseEvent += Pause;
         playEvent += Pause;
         
+    }
+    bool latch;
+    private void Update()
+    {
+        if (isPaused)
+            return;
+        timer += Time.deltaTime;
+        gameTimer = Mathf.FloorToInt(timer);
+        if(gameTimer % timeBetweenHealthPacks == 0)
+        {
+            latch = true;
+        }
+        else if(latch)
+        {
+            latch = false;
+            healthPacksAvaliable ++;
+        }
+    }
+    public void DropHealthPack(Vector2 position)
+    {
+        Instantiate(healthPack, position, Quaternion.identity);
     }
 
     public void GiveExp(int xp)
@@ -46,6 +73,10 @@ public class GameManager : MonoBehaviour
     {
         playerlevel++;
         xpToLevelUp = (int)(xpToLevelUp * levelUpMultiplier);
+        upgradeManager.UpgradeEvent();
+    }
+    public void EliteUpgradeEvent()
+    {
         upgradeManager.UpgradeEvent();
     }
 

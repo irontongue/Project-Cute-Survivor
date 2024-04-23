@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b66115cf0556499bdd5d0bbd7fc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBehaviour: 0
+  enemyBehaviour: 3
   enemyType: 7
   damage: 1
   speed: 350
@@ -139,10 +139,15 @@ MonoBehaviour:
   currentFrame: 0
   timer: 0
   projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
-  attackCoolDown: 5
+  rangedAttackCooldown: 0
   projectileDamage: 1
   numberOfProjectiles: 3
   numberOfProjectileWaves: 5
+  timeBetweenWaves: 0.25
   projectileSpreadAngle: 60
   projectileSpeed: 25
   attackSprites: []
+  dashSpeed: 15
+  dashRange: 1
+  dashCooldown: 5
+  dashChargeUpTime: 1

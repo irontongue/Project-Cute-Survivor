@@ -18,7 +18,7 @@ public class MusicSystem : MonoBehaviour
     [SerializeField] AudioSource arpLayer;
     [SerializeField] AudioSource bassLayer;
     [SerializeField] musicInfoPacket[] infoPackets;
-    [SerializeField]int intensity = 0;
+    [SerializeField] int intensity = 0;
     void Start()
     {
         IncreaseIntensity();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnemyBehaviour {Chase, Ranged, Explode}
+public enum EnemyBehaviour {Chase, Ranged, Explode, Dash, Boss}
 public enum EnemyType {Slime, FishLegs, FrogCar, CarrotDude, CaviarPlant, MushroomSquid, ElephantFairy, ChickenBunny, BananaBoy, extra1, extra2, extra3, extra4, extra5}
 public class AIManager : MonoBehaviour
 {
