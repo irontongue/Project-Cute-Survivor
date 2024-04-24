@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     float rotationDegrees;
     AudioSource audioSource;
+    [SerializeField] RectTransform speedometer;
     void Start()
     {
         gameManager = FindAnyObjectByType<GameManager>();
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour
                 acceleration += (acceleration * autoBreakSpeed * Time.deltaTime) *-1;
             }
         }
+        float rot = Mathf.Lerp(65, -65, acceleration / maxSpeed);
+        speedometer.rotation = Quaternion.Euler(0,0,rot);
 
     }
     void FixedUpdate()
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
         if(acceleration != 0)
         rb.velocity = transform.up * acceleration * Time.fixedDeltaTime;
     }
+
 
     void SetSprite()
     {
