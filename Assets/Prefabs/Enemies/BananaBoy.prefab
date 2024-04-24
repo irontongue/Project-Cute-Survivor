@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4421497108243516663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: enemyType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: framesPerSec
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 867662316664806036}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.data[0]
+      value: 
+      objectReference: {fileID: 706123328, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: frames.Array.data[1]
+      value: 
+      objectReference: {fileID: -335577913, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
+    - target: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_Name
+      value: BananaBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 871833853, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135436594531491248, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2529964172236864797}
+  m_SourcePrefab: {fileID: 100100000, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+--- !u!212 &867662316664806036 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+  m_PrefabInstance: {fileID: 4421497108243516663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2559217727088823239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+  m_PrefabInstance: {fileID: 4421497108243516663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2529964172236864797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2559217727088823239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30b66115cf0556499bdd5d0bbd7fc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBehaviour: 1
+  enemyType: 8
+  damage: 1
+  speed: 350
+  health: 15
+  maxHealth: 10
+  active: 1
+  onFire: 0
+  exp: 1
+  isElite: 0
+  rb: {fileID: 0}
+  gObject: {fileID: 0}
+  trans: {fileID: 0}
+  manager: {fileID: 0}
+  player: {fileID: 0}
+  gameManger: {fileID: 0}
+  fire_PE: {fileID: 0}
+  animate: 1
+  spriteRenderer: {fileID: 867662316664806036}
+  frames:
+  - {fileID: 871833853, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
+  - {fileID: -2118686013, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
+  - {fileID: -1356623684, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
+  - {fileID: -381986528, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
+  framesPerSec: 0.1
+  currentFrame: 0
+  timer: 0
+  projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+  rangedAttackCooldown: 5
+  projectileDamage: 1
+  numberOfProjectiles: 3
+  numberOfProjectileWaves: 5
+  timeBetweenWaves: 0.1
+  projectileSpreadAngle: 60
+  projectileSpeed: 25
+  attackSprites:
+  - {fileID: 302091835, guid: 73918792f25545841a85ad94b5b22e72, type: 3}
+  - {fileID: 1426508410, guid: 73918792f25545841a85ad94b5b22e72, type: 3}
+  - {fileID: 609375702, guid: 73918792f25545841a85ad94b5b22e72, type: 3}
+  - {fileID: -473093390, guid: 73918792f25545841a85ad94b5b22e72, type: 3}
+  dashSpeed: 15
+  dashRange: 1
+  dashCooldown: 5
+  dashChargeUpTime: 1
