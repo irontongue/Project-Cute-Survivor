@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     }
     public void DropHealthPack(Vector2 position)
     {
+        --healthPacksAvaliable;
         Instantiate(healthPack, position, Quaternion.identity);
     }
 
