@@ -104,13 +104,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4098878529774553233}
   m_SourcePrefab: {fileID: 100100000, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
 --- !u!212 &5135851545976158557 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
   m_PrefabInstance: {fileID: 8507558850680155966}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7550444703339243534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+  m_PrefabInstance: {fileID: 8507558850680155966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4098878529774553233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550444703339243534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30b66115cf0556499bdd5d0bbd7fc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBehaviour: 0
+  enemyType: 6
+  damage: 1
+  speed: 400
+  health: 50
+  maxHealth: 10
+  active: 1
+  onFire: 0
+  exp: 1
+  isElite: 0
+  rb: {fileID: 0}
+  gObject: {fileID: 0}
+  trans: {fileID: 0}
+  manager: {fileID: 0}
+  player: {fileID: 0}
+  gameManger: {fileID: 0}
+  fire_PE: {fileID: 0}
+  animate: 1
+  spriteRenderer: {fileID: 5135851545976158557}
+  frames:
+  - {fileID: -1460322458, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
+  - {fileID: 1232367063, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
+  - {fileID: 1781893918, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
+  - {fileID: -1410171580, guid: 2c4494edfb49a184286a276e4dcd6204, type: 3}
+  framesPerSec: 0.1
+  currentFrame: 0
+  timer: 0
+  projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+  attackCoolDown: 5
+  projectileDamage: 1
+  numberOfProjectiles: 9
+  numberOfProjectileWaves: 3
+  timeBetweenWaves: 0.1
+  projectileSpreadAngle: 360
+  projectileSpeed: 25
+  attackSprites: []

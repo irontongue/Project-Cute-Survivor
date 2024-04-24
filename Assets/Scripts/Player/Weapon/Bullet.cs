@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        Destroy(gameObject, 10);
+        //Destroy(gameObject, 10);
     }
     void Update()
     {

@@ -57,7 +57,7 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(WaveLoop());
     }
 
-    IEnumerator WaveLoop()
+    IEnumerator WaveLoop(bool lastWave = false)
     {
         AssignTotalEnemiesToSpawn();
         int timesRepeated = 0;
@@ -88,6 +88,8 @@ public class WaveManager : MonoBehaviour
                     yield return SpawnWave(packet, enemiesToSpawn, timesRepeated);
                 }
             }
+            if (lastWave)
+                waveTimerFinished = true;
             timesRepeated++;
             float secondTimer = 0;
             while(secondTimer < 1)

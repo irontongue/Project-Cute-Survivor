@@ -29,8 +29,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: explodeRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: framesPerSec
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: enemyBehaviour
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: spriteRenderer
@@ -48,6 +56,10 @@ PrefabInstance:
       propertyPath: frames.Array.data[1]
       value: 
       objectReference: {fileID: 1646101647, guid: c015c1963b92ead40b378ed67068925a, type: 3}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: explosionParticleSystem
+      value: 
+      objectReference: {fileID: 828520911902178601, guid: 566abe63d0bc28445b3fea877494420e, type: 3}
     - target: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: m_Name
       value: FroggyCar

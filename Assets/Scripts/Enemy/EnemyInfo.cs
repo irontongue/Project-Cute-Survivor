@@ -14,21 +14,22 @@ public class EnemyInfo : MonoBehaviour
     public bool active = true;
     public bool onFire = false;
     public int exp = 1;
-    [Header("SetUp")]
-    public Rigidbody2D rb;
-    public GameObject gObject;
-    public Transform trans;
-    public AIManager manager;
-    public Transform player;
-    public GameManager gameManger;
-    public ParticleSystem fire_PE;
+    //[Header("SetUp")]
+    [HideInInspector] public bool isElite = false;
+    [HideInInspector]public Rigidbody2D rb;
+    [HideInInspector]public GameObject gObject;
+    [HideInInspector]public Transform trans;
+    [HideInInspector]public AIManager manager;
+    [HideInInspector]public Transform player;
+    [HideInInspector]public GameManager gameManger;
+    [HideInInspector]public ParticleSystem fire_PE;
     [Header("Animation")]
     public bool animate = true;
     public SpriteRenderer spriteRenderer;
     public Sprite[] frames;
     [SerializeField, Tooltip("Input your FPS then / 10")] float framesPerSec;
     public int currentFrame = 0;
-    virtual public void AILoop(EnemyBehaviour behaviour, Vector3 playerPosition)
+    virtual public void AILoop(Vector3 playerPosition)
     {
 
     }
@@ -54,18 +55,21 @@ public class EnemyInfo : MonoBehaviour
         }
     }
 
-    virtual protected IEnumerator DeathEvent()
+    virtual protected IEnumerator DeathEvent(bool giveEXP = true)
     {
         yield return new WaitForEndOfFrame();
         while(gameManger.isPaused)
             yield return null;
+        if (gameManger.healthPacksAvaliable > 0)
+            gameManger.DropHealthPack(trans.position );
         fire_PE.Stop();
         onFire = false;
         active = false;
         gameObject.SetActive(false);
         health = maxHealth;
         manager.RemoveActiveEnemy(this);
-        gameManger.GiveExp(exp);
+        if(giveEXP)
+            gameManger.GiveExp(exp);
         //Play Death sound?
         //Add exp;
     }
@@ -75,10 +79,6 @@ public class EnemyInfo : MonoBehaviour
         active = true;
     }
 
-    void Start()
-    {
-       
-    }
     public float timer = 0;
 
     public void Animate()
