@@ -10,13 +10,18 @@ public class MusicSystem : MonoBehaviour
         public bool drumLayer;
         public bool arpLayer;
         public bool bassLayer;
+        public bool leadLayer; // testing adding in lead instrument
         public AudioClip drumClip;
+        public AudioClip arpClip;
+        public AudioClip bassClip;
+        public AudioClip leadClip; // testing the ability to change loops
     }
 
     [SerializeField] AudioSource mainPadLayer;
     [SerializeField] AudioSource drumLayer;
     [SerializeField] AudioSource arpLayer;
     [SerializeField] AudioSource bassLayer;
+    [SerializeField] AudioSource leadLayer; // testing adding in lead instrument
     [SerializeField] musicInfoPacket[] infoPackets;
     [SerializeField] int intensity = 0;
     void Start()
@@ -54,8 +59,15 @@ public class MusicSystem : MonoBehaviour
             drumLayer.mute = !packet.drumLayer;
             arpLayer.mute = !packet.arpLayer;
             bassLayer.mute = !packet.bassLayer;
+            leadLayer.mute = !packet.leadLayer; // testing adding in lead instrument
             drumLayer.clip = packet.drumClip;
             drumLayer.Play();
+            arpLayer.clip = packet.arpClip;
+            arpLayer.Play();
+            bassLayer.clip = packet.bassClip;
+            bassLayer.Play();
+            leadLayer.clip = packet.leadClip;
+            leadLayer.Play();
             intensity++;
         }
     }
