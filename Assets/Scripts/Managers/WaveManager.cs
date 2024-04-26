@@ -8,6 +8,7 @@ public class WavePacket
     [Tooltip("In Seconds")]public float duration;
     public WaveEnemyPacket[] enemyTypes;
     public bool increaseMusicIntensity = false;
+    public bool decreaseMusicIntensity = false;
 }
 [System.Serializable]
 public class WaveEnemyPacket
@@ -66,8 +67,13 @@ public class WaveManager : MonoBehaviour
 
         waveTimerFinished = false;
         StartCoroutine(WaveTimer());
+        if (wavesInfo[currentWaveIndex].increaseMusicIntensity)
+        {
+            gameManager.IncreaseMusicIntensity();
+        }
         while(waveTimerFinished == false)
         {
+
             foreach(WaveEnemyPacket packet in wavesInfo[currentWaveIndex].enemyTypes) 
             {
                 while (gameManager.isPaused)
@@ -80,11 +86,6 @@ public class WaveManager : MonoBehaviour
                 //print("Enemies To Spawn: " + enemiesToSpawn);
                 if (enemiesToSpawn > 0)
                 {
-                    if (wavesInfo[currentWaveIndex].increaseMusicIntensity)
-                    {
-                        gameManager.IncreaseMusicIntensity();
-                    }
-
                     yield return SpawnWave(packet, enemiesToSpawn, timesRepeated);
                 }
             }

@@ -33,7 +33,7 @@ public class MusicSystem : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
-            IncreaseIntensity();
+            //IncreaseIntensity();
         }
     }
     public void IncreaseIntensity()
