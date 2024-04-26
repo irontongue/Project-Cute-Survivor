@@ -23,12 +23,10 @@ public class PlayerDamageHandler : MonoBehaviour
     {
         
     }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (invulnerable)
         {
-            print("returning");
             return;
         }
         if(other.transform.tag == "Enemy")

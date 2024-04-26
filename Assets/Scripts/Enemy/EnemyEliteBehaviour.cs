@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyEliteBehaviour : EnemyInfo
 {
     // Start is called before the first frame update
+    [SerializeField] Sprite[] attackFrames;
     [Header("Ranged Behaviour")]
     [SerializeField] GameObject projectile;
     [SerializeField] float rangedAttackCooldown;
@@ -14,7 +15,6 @@ public class EnemyEliteBehaviour : EnemyInfo
     [SerializeField] float timeBetweenWaves = 0.25f;
     [SerializeField] float projectileSpreadAngle;
     [SerializeField] float projectileSpeed;
-    [SerializeField] Sprite[] attackSprites;
     [Header("Dash Behaviour")]
     [SerializeField] float dashSpeed = 1;
     [SerializeField] float dashRange = 10;
@@ -39,7 +39,7 @@ public class EnemyEliteBehaviour : EnemyInfo
     //}
     override public void AILoop(Vector3 playerPosition)
     {
-        if (!rangedAttackLatch || !dashLatch)
+        if (!rangedAttackLatch && !dashLatch)
             MoveTowardsPlayer(playerPosition);
 
         switch (enemyBehaviour)
@@ -76,6 +76,8 @@ public class EnemyEliteBehaviour : EnemyInfo
     }
     IEnumerator FireBullets()
     {
+        frameTemp = attackFrames;
+        currentFrame = 0;
         rangedAttackLatch = true;
         Vector2 direction = player.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - (spreadDivided * Mathf.Floor(numberOfProjectiles * 0.5f));
@@ -107,6 +109,8 @@ public class EnemyEliteBehaviour : EnemyInfo
         }
         rangedAttackLatch = false;
         rangedCD = 0;
+        frameTemp = frames;
+        currentFrame = 0;
 
     }
     void SpawnProjectile(float angle)
@@ -129,17 +133,23 @@ public class EnemyEliteBehaviour : EnemyInfo
     }
     IEnumerator DashAttack()
     {
+        frameTemp = attackFrames;
+        currentFrame = 0;
         dashLatch = true;
         yield return new WaitForSeconds(dashChargeUpTime);
         Vector2 pos = (Vector2)player.position + player.GetComponent<Rigidbody2D>().velocity * (15 / dashSpeed + dashRange);
         while(Vector2.Distance(trans.position, pos) > 0.5f)
         {
+            while(gameManger.isPaused)
+                yield return null;
             print(Vector2.Distance(trans.position, pos));
             yield return null;
             trans.position = Vector2.MoveTowards(trans.position, pos, dashSpeed * Time.deltaTime);
         }
         dashLatch = false;
         dashCD = 0;
+        frameTemp = frames;
+        currentFrame = 0;
     }
     override public void DealDamage(int damage)
     {

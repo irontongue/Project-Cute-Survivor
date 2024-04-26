@@ -8,12 +8,23 @@ public class PickUp : MonoBehaviour
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
     [SerializeField]ParticleSystem particleSys;
+    [SerializeField] float flashSpeed;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
+    }
+    Color flashingColour = Color.white;
+    float lerpTime;
+    float pingPongTime;
+    private void Update()
+    {
+        pingPongTime += Time.deltaTime * flashSpeed;
+        lerpTime = Mathf.PingPong(pingPongTime, 1);
+        flashingColour = Color.Lerp(Color.white, new Color(0.5f, 0.5f, 0.5f, 1), lerpTime);
+        spriteRenderer.color = flashingColour;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

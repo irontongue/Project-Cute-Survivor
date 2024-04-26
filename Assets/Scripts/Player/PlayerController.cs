@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float maxSpeed = 100;
+    float defualtMaxSpeed;
     [SerializeField] float accelrationSpeed = 10;
     [SerializeField] float acceleration = 0;
     [SerializeField] float rotationSpeed = 5;
     [SerializeField] float autoBreakSpeed = 5;
+    [SerializeField] float boostMaxSpeed = 200;
+    [SerializeField] float boostDuration = 1;
     GameManager gameManager;
     [SerializeField]
     Sprite[] carSprites;
@@ -18,8 +22,10 @@ public class PlayerController : MonoBehaviour
     float rotationDegrees;
     AudioSource audioSource;
     [SerializeField] RectTransform speedometer;
+    bool boostLatch;
     void Start()
     {
+        defualtMaxSpeed = maxSpeed;
         gameManager = FindAnyObjectByType<GameManager>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
@@ -32,8 +38,14 @@ public class PlayerController : MonoBehaviour
             return;
 
         SetSprite();
-
-        audioSource.pitch = acceleration / maxSpeed;
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (boostLatch)
+                return;
+            maxSpeed = boostMaxSpeed;
+            StartCoroutine(BoostCooldown());
+        }
+        audioSource.pitch = acceleration / defualtMaxSpeed;
         float degrees = (-Input.GetAxis("Horizontal") * (rotationSpeed * acceleration / maxSpeed)) * Time.deltaTime;
         rotationDegrees += degrees;
         transform.eulerAngles += new Vector3(0, 0, degrees);
@@ -54,7 +66,7 @@ public class PlayerController : MonoBehaviour
                 acceleration += (acceleration * autoBreakSpeed * Time.deltaTime) *-1;
             }
         }
-        float rot = Mathf.Lerp(65, -65, acceleration / maxSpeed);
+        float rot = Mathf.Lerp(65, -65, acceleration / boostMaxSpeed);
         speedometer.rotation = Quaternion.Euler(0,0,rot);
 
     }
@@ -64,6 +76,21 @@ public class PlayerController : MonoBehaviour
             return;
         if(acceleration != 0)
         rb.velocity = transform.up * acceleration * Time.fixedDeltaTime;
+    }
+    IEnumerator BoostCooldown()
+    {
+        boostLatch = true;
+        float timer = 0;
+        while(timer < boostDuration)
+        {
+            if(gameManager.isPaused)
+                yield return null;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        maxSpeed = defualtMaxSpeed;
+        boostLatch = false;
+
     }
 
 

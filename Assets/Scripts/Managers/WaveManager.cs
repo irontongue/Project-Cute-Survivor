@@ -203,6 +203,7 @@ public class WaveManager : MonoBehaviour
         info.gameManger = gameManager;
         info.fire_PE = info.GetComponentInChildren<ParticleSystem>();
         info.currentFrame = Random.Range(0, info.frames.Length - 1);
+        info.frameTemp = info.frames;
     }
     void AssignDictionaries()
     {

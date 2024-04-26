@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,12 +28,12 @@ public class GameManager : MonoBehaviour
     public int healthPacksAvaliable;
     [SerializeField] public GameObject healthPack;
     [SerializeField] int timeBetweenHealthPacks = 60;
-
     UpgradeManager upgradeManager;
+    [Header("UI")]
+    [SerializeField] Image expBarImage;
     void Start()
     {
         aiManager = FindFirstObjectByType<AIManager>();
-        print("I started");
         upgradeManager = GetComponent<UpgradeManager>();
         pauseEvent += Pause;
         playEvent += Pause;
@@ -64,10 +65,12 @@ public class GameManager : MonoBehaviour
     public void GiveExp(int xp)
     {
         exp += xp;
+        expBarImage.fillAmount = (float)exp / (float)xpToLevelUp;
         if(exp >= xpToLevelUp)
         {
             exp = exp - xpToLevelUp;
             LevelUp();
+            expBarImage.fillAmount = 0;
         }
     }
     void LevelUp()

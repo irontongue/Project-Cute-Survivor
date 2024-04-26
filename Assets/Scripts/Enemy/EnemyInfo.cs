@@ -27,11 +27,12 @@ public class EnemyInfo : MonoBehaviour
     public bool animate = true;
     public SpriteRenderer spriteRenderer;
     public Sprite[] frames;
+    public Sprite[] frameTemp;
     [SerializeField, Tooltip("Input your FPS then / 10")] float framesPerSec;
     public int currentFrame = 0;
     virtual public void AILoop(Vector3 playerPosition)
     {
-
+        
     }
     public virtual void DamagePerSecond(int damage)
     {
@@ -94,9 +95,9 @@ public class EnemyInfo : MonoBehaviour
             return;
         timer = 0f;
 
-        if (currentFrame >= frames.Length)
+        if (currentFrame >= frameTemp.Length)
             currentFrame = 0;
-        spriteRenderer.sprite = frames[currentFrame];
+        spriteRenderer.sprite = frameTemp[currentFrame];
         currentFrame += 1;
     }
 }

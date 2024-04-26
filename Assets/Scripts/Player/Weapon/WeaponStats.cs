@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Weapons {W_Turret, W_FlameThrower, W_RocketLauncher, W_RodFromGod, W_Lazer}
+public enum Weapons {W_Turret, W_FlameThrower, W_RocketLauncher, W_RodFromGod, W_Lazer, W_Buzzsaw}
 
 [System.Serializable]
 public class Weapon
@@ -17,6 +17,7 @@ public class Weapon
     public float projectileSize = 1;
     public float duration = 1;
     public float radius = 1;
+    public int projectileBounces = 0;
     public Vector2 areaSize = Vector2.zero;
     //
     [HideInInspector]public float baseAttackSpeed = 1;
@@ -26,6 +27,7 @@ public class Weapon
     [HideInInspector]public float baseProjectileSize = 1;
     [HideInInspector]public float baseDuration = 1;
     [HideInInspector]public float baseRadius = 1;
+    [HideInInspector]public int baseProjectileBounces = 0;
     [HideInInspector]public Vector2 baseAreaSize = Vector2.zero;
 }
 

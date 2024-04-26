@@ -43,7 +43,6 @@ public class MusicSystem : MonoBehaviour
             print(arpLayer.time);
             yield return null;
         }
-        print("It worked!");
         if (intensity == infoPackets.Length)
         {
             print("Tried To Increase Music Intesity Past Array Size");

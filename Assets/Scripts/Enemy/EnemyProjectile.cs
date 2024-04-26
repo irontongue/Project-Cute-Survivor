@@ -13,6 +13,7 @@ public class EnemyProjectile : MonoBehaviour
     private void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        StartCoroutine(ResetSelfTimer());
         //Destroy(gameObject, 10);
     }
     void Update()
