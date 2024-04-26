@@ -69,7 +69,11 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(WaveTimer());
         if (wavesInfo[currentWaveIndex].increaseMusicIntensity)
         {
-            gameManager.IncreaseMusicIntensity();
+            gameManager.IncreaseMusicIntensity(1);
+        }
+        else if (wavesInfo[currentWaveIndex].decreaseMusicIntensity)
+        {
+            gameManager.IncreaseMusicIntensity(-1);
         }
         while(waveTimerFinished == false)
         {

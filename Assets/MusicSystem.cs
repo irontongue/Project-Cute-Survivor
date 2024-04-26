@@ -26,7 +26,7 @@ public class MusicSystem : MonoBehaviour
     [SerializeField] int intensity = 0;
     void Start()
     {
-        IncreaseIntensity();
+        IncreaseIntensity(0);
     }
 
     void Update()
@@ -36,12 +36,12 @@ public class MusicSystem : MonoBehaviour
             //IncreaseIntensity();
         }
     }
-    public void IncreaseIntensity()
+    public void IncreaseIntensity(int amount)
     {
-        StartCoroutine(WaitForClipEnd());
+        StartCoroutine(WaitForClipEnd(amount));
     }
     
-    IEnumerator WaitForClipEnd()
+    IEnumerator WaitForClipEnd(int amount)
     {
         while(arpLayer.time > 1)
         {
@@ -54,6 +54,7 @@ public class MusicSystem : MonoBehaviour
         }
         else
         {
+            intensity += amount;
             musicInfoPacket packet = infoPackets[intensity];
             mainPadLayer.mute = !packet.mainPadLayer;
             drumLayer.mute = !packet.drumLayer;
@@ -68,7 +69,6 @@ public class MusicSystem : MonoBehaviour
             bassLayer.Play();
             leadLayer.clip = packet.leadClip;
             leadLayer.Play();
-            intensity++;
         }
     }
 

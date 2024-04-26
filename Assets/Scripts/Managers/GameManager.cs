@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
         
     }
     bool latch;
+
+    public object DecreaseMusicIntensity { get; internal set; }
+
     private void Update()
     {
         if (isPaused)
@@ -108,8 +111,8 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void IncreaseMusicIntensity()
+    public void IncreaseMusicIntensity(int amount)
     {
-        musicSystem.IncreaseIntensity();
+        musicSystem.IncreaseIntensity(amount);
     }
 }
