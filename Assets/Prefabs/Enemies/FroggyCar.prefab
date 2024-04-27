@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: exp
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: speed
-      value: 350
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: damage
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: health
-      value: 40
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: animate
@@ -31,6 +31,10 @@ PrefabInstance:
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: enemyType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      propertyPath: maxHealth
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 213863939127586684, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       propertyPath: explodeRange

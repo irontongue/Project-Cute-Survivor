@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class Projectile_Rocket : MonoBehaviour
@@ -11,9 +12,11 @@ public class Projectile_Rocket : MonoBehaviour
     public GameManager gameManager;
     public WeaponBase weaponBase;
     bool active = true;
+    AudioSource audioSource;
     // MAKE THE PARTICLE EFFECT MIMIC THE RADIUS OF THE ATTACK
     public void InitiliseRocket()
     {
+        audioSource = GetComponent<AudioSource>();
         startLocation = transform.position;
         gameObject.SetActive(true);
         Vector2 angle = targetPosition - (Vector2)transform.position;
@@ -46,6 +49,7 @@ void Explode()
     }
     IEnumerator WaitForParticleEffect()
     {
+        audioSource.Play();
         active = false;
         explosionParticleSystem.Play();
         yield return new WaitForSeconds(explosionParticleSystem.main.duration);

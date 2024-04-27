@@ -115,11 +115,11 @@ MonoBehaviour:
   enemyType: 8
   damage: 1
   speed: 350
-  health: 15
-  maxHealth: 10
+  health: 80
+  maxHealth: 80
   active: 1
   onFire: 0
-  exp: 1
+  exp: 40
   isElite: 0
   rb: {fileID: 0}
   gObject: {fileID: 0}
@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: -2118686013, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
   - {fileID: -1356623684, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
   - {fileID: -381986528, guid: 8de2149679ae4ff4b90d47afa22ddfd5, type: 3}
+  frameTemp: []
   framesPerSec: 0.1
   currentFrame: 0
   timer: 0

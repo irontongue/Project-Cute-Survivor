@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float autoBreakSpeed = 5;
     [SerializeField] float boostMaxSpeed = 200;
     [SerializeField] float boostDuration = 1;
+    [SerializeField] float boostCooldown = 5;
     GameManager gameManager;
     [SerializeField]
     Sprite[] carSprites;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     float rotationDegrees;
     AudioSource audioSource;
     [SerializeField] RectTransform speedometer;
+    [SerializeField] Image nitroImage;
     bool boostLatch;
     void Start()
     {
@@ -79,16 +82,27 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator BoostCooldown()
     {
+        nitroImage.fillAmount = 0;
         boostLatch = true;
         float timer = 0;
         while(timer < boostDuration)
         {
-            if(gameManager.isPaused)
+            if (gameManager.isPaused)
                 yield return null;
             timer += Time.deltaTime;
             yield return null;
         }
+        timer = 0;
         maxSpeed = defualtMaxSpeed;
+
+        while(timer < boostCooldown)
+        {
+            if(gameManager.isPaused)
+                yield return null;
+            timer += Time.deltaTime;
+            nitroImage.fillAmount = timer / boostCooldown;
+            yield return null;
+        }
         boostLatch = false;
 
     }

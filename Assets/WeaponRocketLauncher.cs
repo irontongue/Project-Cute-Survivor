@@ -43,6 +43,7 @@ public class WeaponRocketLauncher : WeaponBase
     void FireWeapon()
     {
         Projectile_Rocket rocket;
+        PlayAudio();
         if (projectilePool.Count > 0)
         {
             rocket = projectilePool[0].GetComponent<Projectile_Rocket>();

@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30b66115cf0556499bdd5d0bbd7fc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBehaviour: 3
+  enemyBehaviour: 4
   enemyType: 7
   damage: 1
   speed: 350
@@ -133,6 +133,7 @@ MonoBehaviour:
   frames:
   - {fileID: 706123328, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
   - {fileID: -335577913, guid: 3994843c787cf564cad512c24228a7c4, type: 3}
+  frameTemp: []
   framesPerSec: 0.1
   currentFrame: 0
   timer: 0
