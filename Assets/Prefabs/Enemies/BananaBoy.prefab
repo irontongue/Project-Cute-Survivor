@@ -119,7 +119,7 @@ MonoBehaviour:
   maxHealth: 80
   active: 1
   onFire: 0
-  exp: 40
+  exp: 45
   isElite: 0
   rb: {fileID: 0}
   gObject: {fileID: 0}
