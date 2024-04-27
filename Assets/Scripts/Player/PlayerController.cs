@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float maxSpeed = 100;
     float defualtMaxSpeed;
-    [SerializeField] float accelrationSpeed = 10;
-    [SerializeField] float acceleration = 0;
-    [SerializeField] float rotationSpeed = 5;
-    [SerializeField] float autoBreakSpeed = 5;
-    [SerializeField] float boostMaxSpeed = 200;
-    [SerializeField] float boostDuration = 1;
-    [SerializeField] float boostCooldown = 5;
+    [SerializeField, Tooltip("How fast it gets up to max speed Bigger = faster")] float accelrationSpeed = 10;
+    float acceleration = 0;
+    [SerializeField,Tooltip("Speed at which the car rotates > = faster")] float rotationSpeed = 5;
+    [SerializeField, Tooltip("how fast the car slows down when no buttens are beeing pressed > = faster")] float autoBreakSpeed = 5;
+    [SerializeField, Tooltip("should be bigger than max speed to make it go faster")] float boostMaxSpeed = 200;
+    [SerializeField, Tooltip("How long the boost lasts")] float boostDuration = 1;
+    [SerializeField,Tooltip("starts after boost has finised")] float boostCooldown = 5;
     GameManager gameManager;
     [SerializeField]
     Sprite[] carSprites;
