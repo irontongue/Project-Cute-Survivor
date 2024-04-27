@@ -21,7 +21,7 @@ public class WeaponBuzzSaw : WeaponBase
         yield return new WaitForSeconds(weaponStats.attackSpeed);
         while (gameManager.isPaused)
             yield return null;
-
+        PlayAudio();
         if (projectilePool.Count > 0)
         {
             projectilePool[0].transform.position = transform.position;

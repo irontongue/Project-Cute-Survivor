@@ -19,7 +19,6 @@ public class WeaponLazer : WeaponBase
     {
         while (gameManager.isPaused)
             yield return null;
-
         yield return new WaitForSeconds(weaponStats.attackSpeed);
         while (gameManager.isPaused)
             yield return null;
