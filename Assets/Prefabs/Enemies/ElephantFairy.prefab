@@ -172,8 +172,8 @@ MonoBehaviour:
   rangedAttackCooldown: 3
   projectileDamage: 1
   numberOfProjectiles: 9
-  numberOfProjectileWaves: 3
-  timeBetweenWaves: 1
+  numberOfProjectileWaves: 6
+  timeBetweenWaves: 0.25
   projectileSpreadAngle: 360
   projectileSpeed: 25
   dashSpeed: 1
