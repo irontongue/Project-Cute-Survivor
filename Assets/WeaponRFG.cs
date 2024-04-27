@@ -24,7 +24,7 @@ public class WeaponRFG : WeaponBase
         while (gameManager.isPaused)
             yield return null;
 
-        yield return new WaitForSeconds(weaponStats.attackSpeed);
+        yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
         while (gameManager.isPaused)
             yield return null;
         PlayAudio();

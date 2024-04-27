@@ -39,7 +39,7 @@ public class WeaponFlamthrower : WeaponBase
             Fire();
             yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(weaponStats.attackSpeed);
+        yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
         while (gameManager.isPaused)
             yield return null;
         timer = 0;

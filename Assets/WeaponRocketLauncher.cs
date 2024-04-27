@@ -15,7 +15,7 @@ public class WeaponRocketLauncher : WeaponBase
 
     IEnumerator WeaponLoop()
     {
-        yield return new WaitForSeconds(weaponStats.attackSpeed);
+        yield return new WaitForSeconds(1 / weaponStats.attackSpeed);
         while(gameManager.isPaused)
                 yield return null;
         if (GetRandomTransformPosition() == false)
