@@ -137,10 +137,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBehaviour: 1
   enemyType: 6
-  damage: 1
-  speed: 400
-  health: 50
-  maxHealth: 10
+  damage: 12
+  speed: 150
+  health: 120
+  maxHealth: 120
   active: 1
   onFire: 0
   exp: 1

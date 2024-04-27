@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBehaviour: 1
   enemyType: 8
-  damage: 1
+  damage: 10
   speed: 350
   health: 80
   maxHealth: 80
