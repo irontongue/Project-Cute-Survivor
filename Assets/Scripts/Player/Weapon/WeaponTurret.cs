@@ -47,6 +47,7 @@ public class WeaponTurret : WeaponBase
     }
     void FireWeapon(GameObject target)
     {
+        PlayAudio();
         if (target == null)
             return;
         Vector2 direction = target.transform.position - transform.parent.position;

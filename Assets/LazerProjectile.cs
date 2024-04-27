@@ -17,8 +17,13 @@ public class LazerProjectile : MonoBehaviour
     int currentFrame;
     float timer;
     GameManager gameManager;
+    AudioSource audioSource;
+    private void Start()
+    {
+    }
     public void Initilize(Vector2 pos1,  Vector2 pos2, float speed, int damage, GameManager gameManager)
     {
+        audioSource = GetComponent<AudioSource>();
         positionOne = pos1;
         positionTwo = pos2;
         this.speed = speed; 
@@ -29,6 +34,7 @@ public class LazerProjectile : MonoBehaviour
         lineRenderer.SetPosition(0, pos1);
         lineRenderer.SetPosition(1, pos2);
         spriteRenderer.transform.position = pos2;
+        audioSource.Play();
     }
     Vector2 pos1;
     Vector2 pos2;
@@ -46,6 +52,7 @@ public class LazerProjectile : MonoBehaviour
         spriteRenderer.transform.position = pos2;
         if(lerpTime >= 1)
         {
+            audioSource.Stop();
             Destroy(gameObject);
         }
     }

@@ -27,7 +27,7 @@ public class WeaponRFG : WeaponBase
         yield return new WaitForSeconds(weaponStats.attackSpeed);
         while (gameManager.isPaused)
             yield return null;
-
+        PlayAudio();
         Vector2 position = GetPointInDonut(innerRadius, outerRadius);
         if(projectilePool.Count > 0)
         {

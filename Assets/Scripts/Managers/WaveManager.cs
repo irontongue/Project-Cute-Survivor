@@ -20,6 +20,7 @@ public class WaveEnemyPacket
     public float rotateAmount = 0;
     public float delayBetweenSpawns = 0;
     public float minSpacing = 1;
+    [HideInInspector] public bool spawned;
 }
 
 public class WaveManager : MonoBehaviour
@@ -80,6 +81,17 @@ public class WaveManager : MonoBehaviour
 
             foreach(WaveEnemyPacket packet in wavesInfo[currentWaveIndex].enemyTypes) 
             {
+                if((int)packet.enemyType > 5)
+                {
+                    if(packet.spawned)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        packet.spawned = true;
+                    }
+                }
                 while (gameManager.isPaused)
                 {
                     yield return null;
@@ -168,7 +180,7 @@ public class WaveManager : MonoBehaviour
                     info.trans.position = dir * (spawnRadius + i) + (Vector2)player.position;
                     info.ResetVariables();
                     info.gameObject.SetActive(true);
-                   
+                    
                 }
                 else
                 {

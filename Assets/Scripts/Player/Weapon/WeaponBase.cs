@@ -16,11 +16,18 @@ public class WeaponBase : MonoBehaviour
     protected GameManager gameManager;
     [SerializeField] protected List<GameObject> projectilePool;
 
+    protected AudioSource audioSource;
+
 
     virtual protected void Start()
     {
         weaponStats = FindObjectOfType<WeaponStats>().GetWeapon(weapon);
         gameManager = FindObjectOfType<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+    }
+    protected void PlayAudio()
+    {
+        audioSource.Play();
     }
     protected virtual IEnumerator GetClosestTarget()
     {
