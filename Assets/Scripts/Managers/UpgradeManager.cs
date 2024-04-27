@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //public enum UpgradeFor {W_Turret, W_FlameThrower, W_RocketLauncher}
-public enum UpgradeType {addWeapon, dmg, atkSpd, size, duration, projectileSpeed, specialOne, specialTwo}
+public enum UpgradeType {addWeapon, dmg, atkSpd, size, duration, projectileSpeed, bounces, explosiveRadius, specialOne, specialTwo}
 [System.Serializable]
 
 public class UpgradeTree 
@@ -22,7 +22,7 @@ public class UpgradeNode
     public UpgradeType upgradeType;
     public float amount;
     public string description;
-    public Texture image;
+    public Sprite image;
     public UpgradeNode nextNode;
     public string nextNodeName;
     //public float weight;
@@ -33,7 +33,7 @@ public class UpgradeCard
 {
     public  TextMeshProUGUI name;
     public TextMeshProUGUI description;
-    public RawImage rawImage;
+    public Sprite image;
 }
 
 public class UpgradeManager : MonoBehaviour
@@ -125,7 +125,7 @@ public class UpgradeManager : MonoBehaviour
 
             //Assign Upgrades to Cards **
             upgradeCards[i].name.text = chosenUpgrades[i].name;
-            upgradeCards[i].rawImage.texture = chosenUpgrades[i]?.image;
+            upgradeCards[i].image = chosenUpgrades[i]?.image;
             upgradeCards[i].description.text = chosenUpgrades[i].description;
             upgradeCards[i].name.gameObject.SetActive(true);
         }
@@ -172,6 +172,12 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case UpgradeType.duration:
                 weaponStats.GetWeapon(node.weapon).duration = weaponStats.GetWeapon(node.weapon).baseDuration *= Mathf.Ceil(1 + node.amount / 100);
+                break;
+            case UpgradeType.bounces:
+                weaponStats.GetWeapon(node.weapon).projectileBounces = weaponStats.GetWeapon(node.weapon).projectileBounces += (int)node.amount;
+                break;
+            case UpgradeType.explosiveRadius:
+                weaponStats.GetWeapon(node.weapon).radius = weaponStats.GetWeapon(node.weapon).radius += (int)node.amount;
                 break;
             case UpgradeType.specialOne:
 
