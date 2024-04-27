@@ -31,7 +31,11 @@ public class WeaponFlamthrower : WeaponBase
         mainMod.duration = weaponStats.duration;
         _particleSystem.Play();
         StartCoroutine(WeaponTimer());
-        PlayAudio();
+        if(audioSource)
+        {
+            StartCoroutine(StopFireAudio());
+            PlayAudio();
+        }
         while(timer < weaponStats.duration)
         {
             if (gameManager.isPaused)
@@ -43,8 +47,12 @@ public class WeaponFlamthrower : WeaponBase
         while (gameManager.isPaused)
             yield return null;
         timer = 0;
-        audioSource.Stop();
         StartCoroutine(MainLoop());
+    }
+    IEnumerator StopFireAudio()
+    {
+        yield return new WaitForSeconds(weaponStats.duration);
+        audioSource.Stop();
     }
     void Fire()
     {
