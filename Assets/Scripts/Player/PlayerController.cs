@@ -110,14 +110,15 @@ public class PlayerController : MonoBehaviour
 
     void SetSprite()
     {
-        if( rotationDegrees < 0)
-        {
-            rotationDegrees = 360;
-        }
-        else if(rotationDegrees > 360)
-        {
-            rotationDegrees = 0;
-        }
+        rotationDegrees = Mathf.Repeat(rotationDegrees, 360);
+        //if( rotationDegrees < 0)
+        //{
+        //    rotationDegrees = 360;
+        //}
+        //else if(rotationDegrees > 360)
+        //{
+        //    rotationDegrees = 0;
+        //}
 
          
         int index = (int)rotationDegrees / 15;
