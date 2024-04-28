@@ -32,7 +32,6 @@ public class WeaponBuzzSaw : WeaponBase
         else
         {
             Quaternion rotation = playerT.rotation;
-            print(playerT.rotation.eulerAngles.z);
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.Euler(0,0,rotation.eulerAngles.z - 90), tempObjectsGameObject.transform);
             BuzzSawProjectile projectile = proj.GetComponent<BuzzSawProjectile>();
             projectile.weapon = weaponStats;

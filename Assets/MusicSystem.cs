@@ -28,14 +28,6 @@ public class MusicSystem : MonoBehaviour
     {
         IncreaseIntensity(0);
     }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)) 
-        {
-            //IncreaseIntensity();
-        }
-    }
     public void IncreaseIntensity(int amount)
     {
         StartCoroutine(WaitForClipEnd(amount));
@@ -47,7 +39,7 @@ public class MusicSystem : MonoBehaviour
         {
             yield return null;
         }
-        if (intensity == infoPackets.Length)
+        if (intensity >= infoPackets.Length)
         {
             print("Tried To Increase Music Intesity Past Array Size");
         }

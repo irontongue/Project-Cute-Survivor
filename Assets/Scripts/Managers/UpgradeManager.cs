@@ -4,8 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
-using static UnityEngine.InputManagerEntry;
-using UnityEditor.Experimental.GraphView;
 
 
 //public enum UpgradeFor {W_Turret, W_FlameThrower, W_RocketLauncher}
@@ -134,7 +132,6 @@ public class UpgradeManager : MonoBehaviour
             {
                 if (maxLoops > 100)
                 {
-                    print("failed");
                     break;
                 }
                 maxLoops++;

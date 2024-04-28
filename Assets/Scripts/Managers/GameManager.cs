@@ -73,7 +73,13 @@ public class GameManager : MonoBehaviour
             seconds = 0;
             mins++;
         }
-        textTime.text = mins.ToString() + ":" + Mathf.FloorToInt(seconds).ToString();
+        String text;
+        if (seconds < 10)
+            text = mins.ToString() + ":0" + Mathf.FloorToInt(seconds).ToString();
+        else
+            text = mins.ToString() + ":" + Mathf.FloorToInt(seconds).ToString();
+
+        textTime.text = text;
         if(gameTimer % timeBetweenHealthPacks == 0)
         {
             latch = true;

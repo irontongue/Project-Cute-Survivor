@@ -149,7 +149,6 @@ public class EnemyEliteBehaviour : EnemyInfo
         {
             while(gameManger.isPaused)
                 yield return null;
-            print(Vector2.Distance(trans.position, pos));
             yield return null;
             trans.position = Vector2.MoveTowards(trans.position, pos, dashSpeed * Time.deltaTime);
         }
