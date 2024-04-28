@@ -112,6 +112,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4098878529774553233}
+    - targetCorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1200180335966293232}
+    - targetCorrespondingSourceObject: {fileID: 2222661411329705776, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3524202074672093569}
   m_SourcePrefab: {fileID: 100100000, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
 --- !u!212 &5135851545976158557 stripped
 SpriteRenderer:
@@ -137,10 +143,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBehaviour: 1
   enemyType: 6
-  damage: 12
-  speed: 150
-  health: 120
-  maxHealth: 120
+  damage: 18
+  speed: 470
+  health: 165
+  maxHealth: 165
   active: 1
   onFire: 0
   exp: 1
@@ -162,6 +168,7 @@ MonoBehaviour:
   frameTemp: []
   framesPerSec: 0.1
   currentFrame: 0
+  attackAudioClip: {fileID: 8300000, guid: 4720904ee092ab44ea7c4ade4cccc540, type: 3}
   timer: 0
   attackFrames:
   - {fileID: 1037063458, guid: db6d2915d449abd489b6939e265e1fd5, type: 3}
@@ -170,7 +177,7 @@ MonoBehaviour:
   - {fileID: -123999501, guid: db6d2915d449abd489b6939e265e1fd5, type: 3}
   projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
   rangedAttackCooldown: 3
-  projectileDamage: 1
+  projectileDamage: 18
   numberOfProjectiles: 9
   numberOfProjectileWaves: 6
   timeBetweenWaves: 0.25
@@ -180,3 +187,111 @@ MonoBehaviour:
   dashRange: 10
   dashCooldown: 5
   dashChargeUpTime: 1
+--- !u!114 &-1200180335966293232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550444703339243534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838548ec6cea64c41966f0908c34cbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &-3524202074672093569
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550444703339243534}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cc8cb5288196ccc4898362e452e065e1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
