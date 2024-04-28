@@ -146,7 +146,6 @@ public class UpgradeManager : MonoBehaviour
             //Assign Upgrades to Cards **
             upgradeCards[i].name.text = chosenUpgrades[i].name;
             upgradeCards[i].image.sprite = chosenUpgrades[i]?.image;
-            print(chosenUpgrades[i].image);
             upgradeCards[i].description.text = chosenUpgrades[i].description;
             upgradeCards[i].name.gameObject.SetActive(true);
         }

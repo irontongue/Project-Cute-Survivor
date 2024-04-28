@@ -20,7 +20,7 @@ public class Projectile_Rocket : MonoBehaviour
         startLocation = transform.position;
         gameObject.SetActive(true);
         Vector2 angle = targetPosition - (Vector2)transform.position;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(angle.x, angle.y) * Mathf.Rad2Deg));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(angle.y, angle.x) * Mathf.Rad2Deg));
     }
     void Update()
     {
