@@ -138,7 +138,7 @@ MonoBehaviour:
   enemyBehaviour: 1
   enemyType: 6
   damage: 18
-  speed: 150
+  speed: 470
   health: 180
   maxHealth: 180
   active: 1
