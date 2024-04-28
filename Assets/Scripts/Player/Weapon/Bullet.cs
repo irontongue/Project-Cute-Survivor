@@ -21,11 +21,8 @@ public class Bullet : MonoBehaviour
 
     IEnumerator ResetSelfTimer()
     {
-        yield return new WaitForEndOfFrame();
-        print(weapon.damage);
         yield return new WaitForSeconds(weapon.projectileLifetime);
         ResetSelf();
-        print("2");
     }
 	private void ResetSelf()
 	{

@@ -29,7 +29,6 @@ public class BuzzSawProjectile : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(weapon.projectileLifetime);
         ResetSelf();
-        print("2");
     }
     private void ResetSelf()
     {

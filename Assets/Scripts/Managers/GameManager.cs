@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class GameManager : MonoBehaviour
     UpgradeManager upgradeManager;
     [Header("UI")]
     [SerializeField] Image expBarImage;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] TextMeshProUGUI textTime;
+    float seconds, mins;
     AudioSource audioSource;
     void Start()
     {
@@ -46,10 +50,36 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                playEvent();
+                pauseMenu.SetActive(false);
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+                pauseEvent();
+            }
+        }
         if (isPaused)
             return;
         timer += Time.deltaTime;
         gameTimer = Mathf.FloorToInt(timer);
+        seconds += Time.deltaTime;
+        if(seconds > 60)
+        {
+            seconds = 0;
+            mins++;
+        }
+        String text;
+        if (seconds < 10)
+            text = mins.ToString() + ":0" + Mathf.FloorToInt(seconds).ToString();
+        else
+            text = mins.ToString() + ":" + Mathf.FloorToInt(seconds).ToString();
+
+        textTime.text = text;
         if(gameTimer % timeBetweenHealthPacks == 0)
         {
             latch = true;
@@ -93,6 +123,11 @@ public class GameManager : MonoBehaviour
     {
         isPaused = !isPaused;
     }
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        playEvent();
+    }
 
     public void DeathEvent()
     {
@@ -112,6 +147,7 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+    
 
     public void IncreaseMusicIntensity(int amount)
     {

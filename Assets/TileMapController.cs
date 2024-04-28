@@ -189,7 +189,6 @@ public class TileMapController : MonoBehaviour
                 return obj.transform.gameObject;
             }
         }
-        print("Tile returned null");
         return null;
     }
     public bool one,two,three,four;
@@ -204,8 +203,6 @@ public class TileMapController : MonoBehaviour
         {
             one = true;
             currentTile = rTile;
-            if (currentTile == null)
-                print("here");
             rTile = temp;
             ResetPositions();
             return;
@@ -214,8 +211,6 @@ public class TileMapController : MonoBehaviour
         {
             two = true;
             currentTile = lTile;
-            if (currentTile == null)
-                print("here");
             lTile = temp;
             ResetPositions();
             return;
@@ -224,8 +219,6 @@ public class TileMapController : MonoBehaviour
         {
             three = true;
             currentTile = uTile;
-            if (currentTile == null)
-                print("here");
             uTile = temp;
             ResetPositions();
             return;
