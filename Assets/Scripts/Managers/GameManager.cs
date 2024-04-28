@@ -31,13 +31,14 @@ public class GameManager : MonoBehaviour
     UpgradeManager upgradeManager;
     [Header("UI")]
     [SerializeField] Image expBarImage;
+    AudioSource audioSource;
     void Start()
     {
         aiManager = FindFirstObjectByType<AIManager>();
         upgradeManager = GetComponent<UpgradeManager>();
         pauseEvent += Pause;
         playEvent += Pause;
-        
+        audioSource = GetComponent<AudioSource>();
     }
     bool latch;
 
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
     }
     void LevelUp()
     {
+        audioSource.Play();
         playerlevel++;
         xpToLevelUp = (int)(xpToLevelUp * levelUpMultiplier);
         upgradeManager.UpgradeEvent();

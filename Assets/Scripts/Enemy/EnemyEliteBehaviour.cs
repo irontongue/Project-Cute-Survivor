@@ -29,6 +29,10 @@ public class EnemyEliteBehaviour : EnemyInfo
     {
         isElite = true;
         spreadDivided = projectileSpreadAngle / numberOfProjectiles;
+        if (GetComponent<AudioSource>() != null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
     //void Update()
     //{
@@ -50,7 +54,10 @@ public class EnemyEliteBehaviour : EnemyInfo
             case EnemyBehaviour.Dash:
                 Dash();
                 break;
-
+            case EnemyBehaviour.Boss:
+                Dash();
+                RangedAttack();
+                break;
         }
 
     }
@@ -76,6 +83,7 @@ public class EnemyEliteBehaviour : EnemyInfo
     }
     IEnumerator FireBullets()
     {
+        audioSource.PlayOneShot(attackAudioClip);
         frameTemp = attackFrames;
         currentFrame = 0;
         rangedAttackLatch = true;

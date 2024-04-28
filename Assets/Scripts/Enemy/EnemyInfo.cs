@@ -30,6 +30,9 @@ public class EnemyInfo : MonoBehaviour
     public Sprite[] frameTemp;
     [SerializeField, Tooltip("Input your FPS then / 10")] float framesPerSec;
     public int currentFrame = 0;
+    [Header("EliteOnly")]
+    [SerializeField] protected AudioClip attackAudioClip;
+    protected AudioSource audioSource;
     virtual public void AILoop(Vector3 playerPosition)
     {
         
