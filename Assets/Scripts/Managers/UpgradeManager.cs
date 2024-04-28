@@ -177,7 +177,7 @@ public class UpgradeManager : MonoBehaviour
                 weaponStats.GetWeapon(node.weapon).projectileBounces = weaponStats.GetWeapon(node.weapon).projectileBounces += (int)node.amount;
                 break;
             case UpgradeType.explosiveRadius:
-                weaponStats.GetWeapon(node.weapon).radius = weaponStats.GetWeapon(node.weapon).radius += (int)node.amount;
+                weaponStats.GetWeapon(node.weapon).radius = weaponStats.GetWeapon(node.weapon).radius += (int)node.amount; 
                 break;
             case UpgradeType.specialOne:
 

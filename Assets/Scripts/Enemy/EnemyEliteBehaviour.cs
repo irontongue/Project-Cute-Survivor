@@ -86,7 +86,6 @@ public class EnemyEliteBehaviour : EnemyInfo
             int g = 0;
             for (int i = 0; i < numberOfProjectiles; i++)
             {
-                print("g: " + g);
                 g++;
                 if (manager.projectilePool.Count > 0)
                 {

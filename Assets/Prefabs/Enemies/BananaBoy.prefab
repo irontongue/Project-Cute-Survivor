@@ -113,13 +113,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBehaviour: 1
   enemyType: 8
-  damage: 1
+  damage: 10
   speed: 350
   health: 80
   maxHealth: 80
   active: 1
   onFire: 0
-  exp: 40
+  exp: 45
   isElite: 0
   rb: {fileID: 0}
   gObject: {fileID: 0}
