@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: ce2819aa1915abf44a500d3b07efb866, type: 3}
+  volume: 1
 --- !u!212 &3816634478732023097 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3555273554403120739, guid: 3ea00ddacedf3e54294012dbe7b8f85b, type: 3}
