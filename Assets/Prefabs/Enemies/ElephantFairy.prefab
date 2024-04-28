@@ -177,7 +177,7 @@ MonoBehaviour:
   - {fileID: -123999501, guid: db6d2915d449abd489b6939e265e1fd5, type: 3}
   projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
   rangedAttackCooldown: 3
-  projectileDamage: 18
+  projectileDamage: 12
   numberOfProjectiles: 9
   numberOfProjectileWaves: 6
   timeBetweenWaves: 0.25
