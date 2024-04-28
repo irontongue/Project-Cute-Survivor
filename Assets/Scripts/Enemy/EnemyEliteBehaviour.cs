@@ -165,7 +165,12 @@ public class EnemyEliteBehaviour : EnemyInfo
         health -= damage;
         if (health <= 0)
         {
-            gameManger.EliteUpgradeEvent();
+            if(enemyBehaviour == EnemyBehaviour.Boss)
+            {
+                gameManger.WinEvent();
+            }
+            else
+                gameManger.EliteUpgradeEvent();
             StartCoroutine(DeathEvent());
         }
     }

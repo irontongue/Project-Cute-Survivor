@@ -122,7 +122,7 @@ public class WaveManager : MonoBehaviour
         }
         else
         {
-            gameManager.WinEvent();
+            //gameManager.WinEvent();
         }
     }
     IEnumerator WaveTimer()

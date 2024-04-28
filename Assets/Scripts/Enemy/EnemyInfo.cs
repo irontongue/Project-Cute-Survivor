@@ -62,6 +62,7 @@ public class EnemyInfo : MonoBehaviour
     virtual protected IEnumerator DeathEvent(bool giveEXP = true)
     {
         yield return new WaitForEndOfFrame();
+        gameObject.SetActive(false);
         while(gameManger.isPaused)
             yield return null;
         if (gameManger.healthPacksAvaliable > 0)
@@ -69,7 +70,6 @@ public class EnemyInfo : MonoBehaviour
         fire_PE.Stop();
         onFire = false;
         active = false;
-        gameObject.SetActive(false);
         health = maxHealth;
         manager.RemoveActiveEnemy(this);
         if(giveEXP)

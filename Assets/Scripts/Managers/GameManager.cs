@@ -36,10 +36,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textTime;
     float seconds, mins;
     AudioSource audioSource;
+    AudioListener audioListener;
+    [SerializeField]Slider slider;
     void Start()
     {
         aiManager = FindFirstObjectByType<AIManager>();
         upgradeManager = GetComponent<UpgradeManager>();
+        audioListener = GetComponent<AudioListener>();
         pauseEvent += Pause;
         playEvent += Pause;
         audioSource = GetComponent<AudioSource>();
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
             {
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime;
         gameTimer = Mathf.FloorToInt(timer);
         seconds += Time.deltaTime;
-        if(seconds > 60)
+        if (seconds > 60)
         {
             seconds = 0;
             mins++;
@@ -80,14 +83,14 @@ public class GameManager : MonoBehaviour
             text = mins.ToString() + ":" + Mathf.FloorToInt(seconds).ToString();
 
         textTime.text = text;
-        if(gameTimer % timeBetweenHealthPacks == 0)
+        if (gameTimer % timeBetweenHealthPacks == 0)
         {
             latch = true;
         }
-        else if(latch)
+        else if (latch)
         {
             latch = false;
-            healthPacksAvaliable ++;
+            healthPacksAvaliable++;
         }
     }
     public void DropHealthPack(Vector2 position)
@@ -100,7 +103,7 @@ public class GameManager : MonoBehaviour
     {
         exp += xp;
         expBarImage.fillAmount = (float)exp / (float)xpToLevelUp;
-        if(exp >= xpToLevelUp)
+        if (exp >= xpToLevelUp)
         {
             exp = exp - xpToLevelUp;
             LevelUp();
@@ -132,7 +135,7 @@ public class GameManager : MonoBehaviour
     public void DeathEvent()
     {
         pauseEvent();
-        gameOverUI.SetActive(true);   
+        gameOverUI.SetActive(true);
     }
     public void WinEvent()
     {
@@ -147,10 +150,14 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
 
     public void IncreaseMusicIntensity(int amount)
     {
         musicSystem.IncreaseIntensity(amount);
+    }
+    public void SetVolume()
+    {
+        AudioListener.volume = Mathf.Clamp01(slider.value);
     }
 }
