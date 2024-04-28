@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
+using static UnityEngine.InputManagerEntry;
+using UnityEditor.Experimental.GraphView;
+
 
 //public enum UpgradeFor {W_Turret, W_FlameThrower, W_RocketLauncher}
 public enum UpgradeType {addWeapon, dmg, atkSpd, size, duration, projectileSpeed, bounces, explosiveRadius, specialOne, specialTwo}
@@ -13,6 +17,8 @@ public class UpgradeTree
     [SerializeField] string name;
     public UpgradeNode[] nodes;
     public bool treeActive;
+    public Sprite image;
+
 }
 [System.Serializable]
 public class UpgradeNode
@@ -33,7 +39,7 @@ public class UpgradeCard
 {
     public  TextMeshProUGUI name;
     public TextMeshProUGUI description;
-    public Sprite image;
+    public Image image;
 }
 
 public class UpgradeManager : MonoBehaviour
@@ -61,6 +67,20 @@ public class UpgradeManager : MonoBehaviour
         }
 
     }
+#if UNITY_EDITOR
+    [ContextMenu("AssignImage")]
+    public void AssignImage()
+    {
+        foreach(UpgradeTree tree in upgradeTrees)
+        {
+            foreach(UpgradeNode node in tree.nodes)
+            {
+                node.image = tree?.image;
+            }
+        }
+
+    }
+#endif
     void InitializeUpgradePool()
     {
         foreach (UpgradeTree tree in upgradeTrees)
@@ -125,7 +145,8 @@ public class UpgradeManager : MonoBehaviour
 
             //Assign Upgrades to Cards **
             upgradeCards[i].name.text = chosenUpgrades[i].name;
-            upgradeCards[i].image = chosenUpgrades[i]?.image;
+            upgradeCards[i].image.sprite = chosenUpgrades[i]?.image;
+            print(chosenUpgrades[i].image);
             upgradeCards[i].description.text = chosenUpgrades[i].description;
             upgradeCards[i].name.gameObject.SetActive(true);
         }
