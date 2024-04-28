@@ -45,7 +45,6 @@ public class MusicSystem : MonoBehaviour
     {
         while(arpLayer.time > 1)
         {
-            print(arpLayer.time);
             yield return null;
         }
         if (intensity == infoPackets.Length)
