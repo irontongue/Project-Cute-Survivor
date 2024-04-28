@@ -4,10 +4,14 @@ using UnityEngine;
 public class WeaponFlamthrower : WeaponBase
 {
     ParticleSystem _particleSystem;
+    ParticleSystem.MainModule mainMod;
+    float fxDefualtSpeed;
     override protected void Start()
     {
        base.Start();
        _particleSystem = GetComponentInChildren<ParticleSystem>();
+        mainMod = _particleSystem.main;
+        fxDefualtSpeed = mainMod.startSpeed.constant;
         StartCoroutine(MainLoop());
     }
 
@@ -24,11 +28,12 @@ public class WeaponFlamthrower : WeaponBase
             yield return null;
         }
     }
+    
     IEnumerator MainLoop()
     {
         _particleSystem.Stop();
-        var mainMod = _particleSystem.main;
         mainMod.duration = weaponStats.duration;
+        mainMod.startSpeed = fxDefualtSpeed * (weaponStats.projectileSize + 1) / 2;
         _particleSystem.Play();
         StartCoroutine(WeaponTimer());
         if(audioSource)
@@ -54,9 +59,12 @@ public class WeaponFlamthrower : WeaponBase
         yield return new WaitForSeconds(weaponStats.duration);
         audioSource.Stop();
     }
+    Vector2 gizmoCenter = Vector2.zero;
     void Fire()
     {
         areaSize = weaponStats.areaSize;
+        areaSize.x = areaSize.x + weaponStats.projectileSize;
+        gizmoCenter = muzzlePosition.position + transform.right * (areaSize.x); 
         center = muzzlePosition.position + transform.right * (areaSize.x * 0.5f);
         float angle = transform.root.rotation.eulerAngles.z + muzzlePosition.transform.rotation.z;
         EnemyInfo[] infos = GetEnemiesInArea(center, areaSize, angle);
@@ -67,6 +75,13 @@ public class WeaponFlamthrower : WeaponBase
                 info.SetOnFire();
             info.DealDamage(weaponStats.damage);
         } 
+    }
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying)
+            return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(gizmoCenter, 0.5f);
     }
 
     //private void OnDrawGizmos()
