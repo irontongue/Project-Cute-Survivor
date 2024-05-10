@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public EnemyInfo[] enemies;
+    [SerializeField]bool trigger;
     void Start()
     {
         
@@ -14,15 +14,11 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (EnemyInfo enemy in enemies)
-        {
-            if (enemy == null)
-                return;
-            enemy.Animate();
-        }
+        if (trigger)
+            SceneManager.LoadScene("MainMenu");
     }
     public void PlayButton()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
