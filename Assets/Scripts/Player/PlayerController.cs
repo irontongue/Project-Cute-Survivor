@@ -69,14 +69,13 @@ public class PlayerController : MonoBehaviour
                 acceleration += (acceleration * autoBreakSpeed * Time.deltaTime) *-1;
             }
         }
-        float rot = Mathf.Lerp(65, -65, acceleration / boostMaxSpeed);
-        speedometer.rotation = Quaternion.Euler(0,0,rot);
 
     }
     void FixedUpdate()
     {
         if(gameManager.isPaused)
             return;
+        SetSpeedometer();
         if(acceleration != 0)
         rb.velocity = transform.up * acceleration * Time.fixedDeltaTime;
     }
@@ -93,20 +92,29 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         timer = 0;
-        maxSpeed = defualtMaxSpeed;
+        //maxSpeed = defualtMaxSpeed;
 
         while(timer < boostCooldown)
         {
             if(gameManager.isPaused)
                 yield return null;
             timer += Time.deltaTime;
+            maxSpeed = Mathf.Lerp(boostMaxSpeed, defualtMaxSpeed, timer * 2);
             nitroImage.fillAmount = timer / boostCooldown;
             yield return null;
         }
         boostLatch = false;
 
     }
-
+    void SetSpeedometer()
+    {
+        float rot = Mathf.Lerp(65, -130, acceleration / boostMaxSpeed);
+        if(acceleration == maxSpeed)
+        {
+            rot = Random.Range(rot - 2, rot + 2);
+        }
+        speedometer.rotation = Quaternion.Euler(0, 0, rot);
+    }
 
     void SetSprite()
     {

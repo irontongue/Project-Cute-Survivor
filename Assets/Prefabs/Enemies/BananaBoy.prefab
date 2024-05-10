@@ -149,7 +149,7 @@ MonoBehaviour:
   attackFrames:
   - {fileID: 609375702, guid: 73918792f25545841a85ad94b5b22e72, type: 3}
   - {fileID: -473093390, guid: 73918792f25545841a85ad94b5b22e72, type: 3}
-  projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+  projectile: {fileID: 3450652656037586554, guid: ca47ab0daee05b24a8184a5a4457aa3c, type: 3}
   rangedAttackCooldown: 2.5
   projectileDamage: 10
   numberOfProjectiles: 3

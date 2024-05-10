@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6196732962997034126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639851781873002717, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733452912990639450, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 960478327, guid: f7752cee46f5277409187f161642e8aa, type: 3}
+    - target: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+      propertyPath: m_Name
+      value: BananaBoyProjectile
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e960e2b3424464e4cb931f98f1478638, type: 3}

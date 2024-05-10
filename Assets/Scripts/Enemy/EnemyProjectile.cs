@@ -6,6 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     public int damage;
     public float speed;
+    public EnemyType enemyType;
     [SerializeField] float projectileLifeTime;
     GameManager gameManager;
 
@@ -33,7 +34,7 @@ public class EnemyProjectile : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         StopCoroutine(ResetSelfTimer());
         gameObject.SetActive(false);
-        gameManager.aiManager.projectilePool.Add(gameObject);
+        gameManager.aiManager.AddToProectilePool(gameObject, enemyType);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

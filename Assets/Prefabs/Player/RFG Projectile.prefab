@@ -61,6 +61,7 @@ MonoBehaviour:
     projectileSize: 1
     duration: 1
     radius: 1
+    projectileBounces: 0
     areaSize: {x: 0, y: 0}
     baseAttackSpeed: 1
     baseAttackRange: 1
@@ -69,6 +70,7 @@ MonoBehaviour:
     baseProjectileSize: 1
     baseDuration: 1
     baseRadius: 1
+    baseProjectileBounces: 0
     baseAreaSize: {x: 0, y: 0}
 --- !u!1 &5283860600982156288
 GameObject:
@@ -223,6 +225,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5003268777676486292}
     m_Modifications:
+    - target: {fileID: 2427908173056977710, guid: 419cc3e3ae5a84b469060ba8d971be1f, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2427908173056977710, guid: 419cc3e3ae5a84b469060ba8d971be1f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6990393661085612824, guid: 419cc3e3ae5a84b469060ba8d971be1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

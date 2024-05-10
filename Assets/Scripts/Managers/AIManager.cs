@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum EnemyBehaviour {Chase, Ranged, Explode, Dash, Boss}
@@ -15,6 +16,7 @@ public class AIManager : MonoBehaviour
     // *** End Pooling ***
     public List<EnemyInfo> activeEnemies = new List<EnemyInfo>();
     public List<GameObject> projectilePool;
+    public Dictionary<EnemyType, List<GameObject>> projectilePools = new Dictionary<EnemyType, List<GameObject>>();
     public GameObject tempGameobjectFolder;
 
 
@@ -24,6 +26,12 @@ public class AIManager : MonoBehaviour
         GetReferences();
         gameManager.pauseEvent += PauseEnemies;
         gameManager.playEvent += ResumeEnemies;
+
+        projectilePools.Add(EnemyType.FishLegs, new List<GameObject>());
+        projectilePools.Add(EnemyType.MushroomSquid, new List<GameObject>());
+        projectilePools.Add(EnemyType.ElephantFairy, new List<GameObject>());
+        projectilePools.Add(EnemyType.ChickenBunny, new List<GameObject>());
+        projectilePools.Add(EnemyType.BananaBoy, new List<GameObject>());
     }
     void GetReferences()
     {
@@ -37,6 +45,18 @@ public class AIManager : MonoBehaviour
     public void AddToEnemyPools(EnemyInfo enemyInfo)
     {
         enemyPools[enemyInfo.enemyType].Add(enemyInfo);
+    }
+    public void AddToProectilePool(GameObject projectile, EnemyType enemyType)
+    {
+        projectilePools[enemyType].Add(projectile);
+    }
+    public GameObject RemoveFromProjectilePool(EnemyType enemyType)
+    {
+        GameObject proj = projectilePools[enemyType][0];
+        if(proj != null)
+            projectilePools[enemyType].RemoveAt(0);
+        return proj;
+
     }
 
     public void AddToActiveEnemies(EnemyType enemyType, EnemyInfo info = null)

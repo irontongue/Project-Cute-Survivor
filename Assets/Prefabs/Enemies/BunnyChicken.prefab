@@ -121,7 +121,7 @@ MonoBehaviour:
   enemyType: 7
   damage: 1
   speed: 350
-  health: 750
+  health: 1000
   maxHealth: 10
   active: 1
   onFire: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   - {fileID: 1168402214, guid: bd00c9d251757d74896e5a11baf52458, type: 3}
   - {fileID: 1233354748, guid: bd00c9d251757d74896e5a11baf52458, type: 3}
   - {fileID: 519437100, guid: bd00c9d251757d74896e5a11baf52458, type: 3}
-  projectile: {fileID: 8798935821282753268, guid: e960e2b3424464e4cb931f98f1478638, type: 3}
+  projectile: {fileID: 7410345417583444605, guid: 9f181eb1e60c6b64b88090cb6d0ed6a6, type: 3}
   rangedAttackCooldown: 3
   projectileDamage: 1
   numberOfProjectiles: 7

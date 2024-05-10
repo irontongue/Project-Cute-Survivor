@@ -14,7 +14,7 @@ public class WeaponBase : MonoBehaviour
     protected EnemyInfo currentTargetInfo = null;
     protected Weapon weaponStats;
     protected GameManager gameManager;
-    [SerializeField] protected List<GameObject> projectilePool;
+    protected List<GameObject> projectilePool = new List<GameObject>();
 
     protected AudioSource audioSource;
 

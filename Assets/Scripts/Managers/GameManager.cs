@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
         pauseEvent += Pause;
         playEvent += Pause;
         audioSource = GetComponent<AudioSource>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     bool latch;
 
@@ -125,6 +127,16 @@ public class GameManager : MonoBehaviour
     void Pause()
     {
         isPaused = !isPaused;
+        if(isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
     public void Resume()
     {

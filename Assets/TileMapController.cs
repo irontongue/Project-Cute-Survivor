@@ -39,7 +39,7 @@ public class TileMapController : MonoBehaviour
         TransitionToNewTile();
         pos = playerTransform.position;
         Vector2 tilePos = currentTile.transform.position;
-        if (pos.x > tilePos.x + 20) //Right
+        if (pos.x > tilePos.x + 15) //Right
         {
             if (!right)
             {
@@ -55,7 +55,7 @@ public class TileMapController : MonoBehaviour
             right = false;
         }
         // END
-        if (pos.x < tilePos.x - 20) //Left
+        if (pos.x < tilePos.x - 15) //Left
         {
             if(!left)
             {   
@@ -71,7 +71,7 @@ public class TileMapController : MonoBehaviour
             left = false;
         }
         // END
-        if (pos.y > tilePos.y + 30)  //Up
+        if (pos.y > tilePos.y + 25)  //Up
         {
             if(!up)
             {   
@@ -87,7 +87,7 @@ public class TileMapController : MonoBehaviour
             up = false;
         }
         // END
-        if (pos.y < tilePos.y - 30) //Down
+        if (pos.y < tilePos.y - 25) //Down
         {
             if(!down)
             {   
@@ -191,41 +191,38 @@ public class TileMapController : MonoBehaviour
         }
         return null;
     }
-    public bool one,two,three,four;
 
     void TransitionToNewTile()
     {
         //if (Mathf.Abs(pos.x) < Mathf.Abs(currentTile.transform.position.x) + 50 && Mathf.Abs(pos.y) < Mathf.Abs(currentTile.transform.position.y) + 50)
         //    return;
         //    print("adasdaw");
+
+        float distance = 55; //55
         GameObject temp = currentTile;
-        if (pos.x > currentTile.transform.position.x + 55)
+        if (pos.x > currentTile.transform.position.x + distance)
         {
-            one = true;
             currentTile = rTile;
             rTile = temp;
             ResetPositions();
             return;
         }
-        if(pos.x < currentTile.transform.position.x - 55)
+        if(pos.x < currentTile.transform.position.x - distance)
         {
-            two = true;
             currentTile = lTile;
             lTile = temp;
             ResetPositions();
             return;
         }
-        if (pos.y > currentTile.transform.position.y + 55)
+        if (pos.y > currentTile.transform.position.y + distance)
         {
-            three = true;
             currentTile = uTile;
             uTile = temp;
             ResetPositions();
             return;
         }
-        if (pos.y < currentTile.transform.position.y - 55)
+        if (pos.y < currentTile.transform.position.y - distance)
         {
-            four = true;
             currentTile = dTile;
 
             dTile = temp;

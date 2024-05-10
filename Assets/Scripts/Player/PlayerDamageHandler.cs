@@ -55,7 +55,7 @@ public class PlayerDamageHandler : MonoBehaviour
     void ChangeHealth(int amount)
     {
         health = Mathf.Clamp(health + amount, 0, maxHealth);
-        lowHPIndicator.color = new Color(1,1,1, 1 - ((float)health / (float)maxHealth));
+        lowHPIndicator.color = new Color(1,1,1, 1 - ((float)health / (float)maxHealth) - 0.5f);
         if(health == 0)
         {
             AudioSource audioSource = GetComponent<AudioSource>();
