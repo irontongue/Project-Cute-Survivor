@@ -55,17 +55,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.L)) 
+        {
+            LevelUp();
+        }
+#endif
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (!upgradeManager.upgradeUIOn)
             {
-                playEvent();
-                pauseMenu.SetActive(false);
-            }
-            else
-            {
-                pauseMenu.SetActive(true);
-                pauseEvent();
+                if (isPaused)
+                {
+                    playEvent();
+                    pauseMenu.SetActive(false);
+                }
+                else
+                {
+                    pauseMenu.SetActive(true);
+                    pauseEvent();
+                }
             }
         }
         if (isPaused)
@@ -156,7 +165,7 @@ public class GameManager : MonoBehaviour
     }
     public void RestartScene()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("GameScene");
     }
     public void QuitApplication()
     {

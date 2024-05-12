@@ -51,6 +51,7 @@ public class UpgradeManager : MonoBehaviour
     public UpgradeNode[] chosenUpgrades = new UpgradeNode[3];
     WeaponStats weaponStats;
     GameManager gameManager;
+    [HideInInspector] public bool upgradeUIOn;
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -146,7 +147,7 @@ public class UpgradeManager : MonoBehaviour
             upgradeCards[i].description.text = chosenUpgrades[i].description;
             upgradeCards[i].name.gameObject.SetActive(true);
         }
-
+        upgradeUIOn = true;
         upgradeUI.SetActive(true);
     }
 
@@ -163,6 +164,7 @@ public class UpgradeManager : MonoBehaviour
         {
             upgradeCard.name.gameObject.SetActive(false);
         }
+        upgradeUIOn = false;
     }
     public void ChooseUpgrade(UpgradeNode node)
     {
